@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  crvweb:
+    image: coinflow/crv-office-web:latest
+    container_name: crvweb
+    restart: always
+    ports:
+      - '8002:80'
+    privileged: true
+networks:
+  sp_default:
+    driver: bridge
