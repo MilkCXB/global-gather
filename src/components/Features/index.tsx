@@ -19,6 +19,7 @@ import img3 from "@/public/images/feature/img3.png"
 import img4 from "@/public/images/feature/img4.png"
 import { Title } from "../Advantages"
 import { textAlign } from "@mui/system"
+import { useCallback } from "react"
 
 const Wrapper = styled("div")(({ theme }) => ({}))
 const ContentBox = styled("div")(({ theme }) => ({
@@ -53,7 +54,9 @@ export default function Features() {
   const isXs = useMediaQuery((theme: CustomTheme) =>
     theme.breakpoints.down("sm")
   )
-
+  const handleSkip = useCallback((params) => {
+    window.open(`http://16.162.188.15:7481/#/${params}`)
+  }, [])
   return (
     <Wrapper>
       <Stack
@@ -73,7 +76,13 @@ export default function Features() {
                 <TextBox>
                   <Typography>Swap or Trade quickly and cheaply.</Typography>
                 </TextBox>
-                <ButtonReverse>Swap</ButtonReverse>
+                <ButtonReverse
+                  onClick={() => {
+                    handleSkip("swap")
+                  }}
+                >
+                  Swap
+                </ButtonReverse>
               </Card1>
             </Grid>
             <Grid sm={3}>
@@ -84,7 +93,13 @@ export default function Features() {
                     Earn yield through fees and yield farms.
                   </Typography>
                 </TextBox>
-                <ButtonReverse>Farm</ButtonReverse>
+                <ButtonReverse
+                  onClick={() => {
+                    handleSkip("pool")
+                  }}
+                >
+                  Farm
+                </ButtonReverse>
               </Card1>
             </Grid>
             <Grid sm={3}>
@@ -96,7 +111,13 @@ export default function Features() {
                     DAO
                   </Typography>
                 </TextBox>
-                <ButtonReverse>Dao</ButtonReverse>
+                <ButtonReverse
+                  onClick={() => {
+                    handleSkip("boost")
+                  }}
+                >
+                  Dao
+                </ButtonReverse>
               </Card1>
             </Grid>
             <Grid sm={3}>
@@ -105,7 +126,13 @@ export default function Features() {
                 <TextBox>
                   <Typography>Provide liquidity for any SPL token.</Typography>
                 </TextBox>
-                <ButtonReverse>Factory</ButtonReverse>
+                <ButtonReverse
+                  onClick={() => {
+                    handleSkip("factory")
+                  }}
+                >
+                  Factory
+                </ButtonReverse>
               </Card1>
             </Grid>
           </ContentBox>

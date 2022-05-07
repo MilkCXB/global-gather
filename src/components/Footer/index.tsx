@@ -82,11 +82,8 @@ export default function Footer() {
                     <Outer href={FRIEND_LINK.telegram}>
                       <FriendImg src={icon2} />
                     </Outer>
-                    <Outer href={FRIEND_LINK.discord}>
+                    <Outer href={FRIEND_LINK.channel}>
                       <FriendImg src={icon3} />
-                    </Outer>
-                    <Outer href={FRIEND_LINK.medium}>
-                      <FriendImg src={icon4} />
                     </Outer>
                   </Stack>
                 </Grid>
@@ -156,11 +153,8 @@ export default function Footer() {
                       <Outer href={FRIEND_LINK.telegram}>
                         <FriendImg src={icon2} />
                       </Outer>
-                      <Outer href={FRIEND_LINK.discord}>
+                      <Outer href={FRIEND_LINK.channel}>
                         <FriendImg src={icon3} />
-                      </Outer>
-                      <Outer href={FRIEND_LINK.medium}>
-                        <FriendImg src={icon4} />
                       </Outer>
                     </Stack>
                   </Grid>

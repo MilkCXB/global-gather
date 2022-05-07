@@ -13,6 +13,7 @@ import { Trans } from "@lingui/macro"
 import { ColorfulRect, CustomTheme } from "@/src/theme"
 import { imgLazyload } from "@/src/utils/img"
 import card_bg from "@/public/images/card_bg.png"
+import currency from "@/public/images/currency.png"
 import { useEffect, useCallback, useState } from "react"
 import { getCurrency } from "./data"
 
@@ -85,12 +86,13 @@ export default function TotalTrading() {
                 <Stack flexDirection={"row"}>
                   <Box
                     sx={{
-                      background: "#F9934A",
                       width: "81px",
                       height: "81px",
                       borderRadius: "50%",
                     }}
-                  ></Box>
+                  >
+                    <MyImage src={currency} />
+                  </Box>
                   <Box sx={{ ml: { sm: "12px" }, minWidth: { sm: "170px" } }}>
                     <Stack flexDirection={"row"}>
                       <Typography color={"#FCFBFF"} fontSize={{ sm: 22 }}>
