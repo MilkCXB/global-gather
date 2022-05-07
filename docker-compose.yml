@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  kleinweb:
-    image: coinflow/klein-office-web:latest
-    container_name: kleinweb
+  kleinoffice:
+    image: coinflow/klein-office:latest
+    container_name: kleinoffice
     restart: always
     ports:
       - '7500:80'
