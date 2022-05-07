@@ -72,7 +72,7 @@ const MyButton = styled("div")(({ theme }) => ({
   padding: "16px 56px",
   borderRadius: "9px",
   fontSize: "24px",
-  fontFamily: "TimesNewRomanPS-BoldMT, TimesNewRomanPS",
+  fontFamily: "Inter-Regular_Bold",
   [theme.breakpoints.down("sm")]: {
     fontSize: "12px",
     fontWeight: "24px",
@@ -82,7 +82,7 @@ const MyButton = styled("div")(({ theme }) => ({
 
 const ButtonPrimary = styled(MyButton)(({ theme }) => ({
   background: "linear-gradient(90deg, #57AFFB 0%, #8E2EF6 100%)",
-  fontFamily: "TimesNewRomanPS-BoldMT, TimesNewRomanPS",
+  fontFamily: "Inter-Regular_Bold",
   [theme.breakpoints.down("sm")]: {
     margin: "0 auto",
   },
