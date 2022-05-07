@@ -1,20 +1,27 @@
-import { Box, Button, Stack, Typography, useTheme } from '@mui/material'
-import styled from '@mui/system/styled'
-import logoBanner from '@/public/images/home/logo.png'
-import { CustomTheme, Hidden } from '@/src/theme'
-import { navs } from '@/src/constants/data'
-import { Fragment, MutableRefObject, useCallback, useEffect, useMemo, useState } from 'react'
-import { createGradient } from '@/src/theme/palette'
-import Web3Status from '../Web3Status'
-import { debounce } from 'lodash'
+import { Box, Button, Stack, Typography, useTheme } from "@mui/material"
+import styled from "@mui/system/styled"
+import logoBanner from "@/public/images/home/logo.png"
+import { CustomTheme, Hidden } from "@/src/theme"
+import { navs } from "@/src/constants/data"
+import {
+  Fragment,
+  MutableRefObject,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react"
+import { createGradient } from "@/src/theme/palette"
+import Web3Status from "../Web3Status"
+import { debounce } from "lodash"
 
-const Wrapper = styled('div')(({ theme }: { theme?: CustomTheme }) => ({
-  position: 'fixed',
-  top: '0',
-  left: '0',
-  right: '0',
+const Wrapper = styled("div")(({ theme }: { theme?: CustomTheme }) => ({
+  position: "fixed",
+  top: "0",
+  left: "0",
+  right: "0",
   // background: '#FBFBFD',
-  backdropFilter: 'blur(20px)',
+  backdropFilter: "blur(20px)",
 }))
 
 // const Blur = styled('div')(() => ({
@@ -23,19 +30,19 @@ const Wrapper = styled('div')(({ theme }: { theme?: CustomTheme }) => ({
 //   filter: 'blur(20px)',
 // }))
 
-const ImgLogo = styled('img')(({ theme }) => ({
-  width: '86px',
-  height: '32px',
-  [theme.breakpoints.down('sm')]: {
-    width: '86px',
-    height: '32px',
+const ImgLogo = styled("img")(({ theme }) => ({
+  width: "120px",
+  // height: '32px',
+  [theme.breakpoints.down("sm")]: {
+    width: "86px",
+    height: "32px",
   },
 }))
 
-const MyButton = styled('div')`
+const MyButton = styled("div")`
   width: fit-content;
   padding: 7px 26px;
-  border: 1px solid #fff;
+  border: 1px solid #8e2ef6;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
@@ -45,10 +52,10 @@ const MyButton = styled('div')`
 `
 
 export enum Pages {
-  HOME = '#home',
-  WHY = '#introduction',
-  TOKEN = '#token',
-  ROADMAP = '#roadmap',
+  HOME = "#home",
+  WHY = "#introduction",
+  TOKEN = "#token",
+  ROADMAP = "#roadmap",
 }
 
 export type HeaderRef = {
@@ -64,17 +71,19 @@ export default function Header({ refs }: HeaderProps) {
 
   const theme = useTheme()
 
-  const handleClickNavItem = (ref?: MutableRefObject<HTMLDivElement | null>) => {
+  const handleClickNavItem = (
+    ref?: MutableRefObject<HTMLDivElement | null>
+  ) => {
     if (!ref) return
 
     // setActive(page)
     if (ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      ref.current.scrollIntoView({ behavior: "smooth", block: "start" })
     }
   }
   const handleLunch = useCallback(() => {
     // location.href = ''
-    window.open('http://16.162.188.15:9500/')
+    window.open("http://16.162.188.15:7481/")
   }, [])
 
   const scrollEventListener = useMemo(() => {
@@ -102,17 +111,21 @@ export default function Header({ refs }: HeaderProps) {
 
   // add listener
   useEffect(() => {
-    document.addEventListener('scroll', scrollEventListener)
+    document.addEventListener("scroll", scrollEventListener)
     return () => {
-      document.removeEventListener('scroll', scrollEventListener)
+      document.removeEventListener("scroll", scrollEventListener)
     }
   }, [scrollEventListener])
 
   return (
     <Wrapper>
       {/* <Blur /> */}
-      <Box sx={{ padding: '20px 32px' }}>
-        <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
+      <Box sx={{ padding: "20px 32px" }}>
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
           <Box>
             <ImgLogo src={logoBanner} alt="Logo banner" loading="lazy" />
           </Box>

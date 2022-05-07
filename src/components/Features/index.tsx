@@ -24,7 +24,8 @@ const Wrapper = styled("div")(({ theme }) => ({}))
 const ContentBox = styled("div")(({ theme }) => ({
   display: "flex",
   flexWrap: "nowrap",
-  gap: "56px",
+  gap: "44px",
+  justifyContent: "space-around",
 }))
 const Card1 = styled("div")(({ theme }) => ({
   padding: "21px 30px 68px",
@@ -55,7 +56,12 @@ export default function Features() {
 
   return (
     <Wrapper>
-      <Stack sx={{ mb: { sm: "130px", xs: "76px" }, mt: { xs: "30px" } }}>
+      <Stack
+        sx={{
+          mb: { sm: "130px", xs: "76px" },
+          mt: { xs: "30px", sm: "200px" },
+        }}
+      >
         <Title>Features</Title>
       </Stack>
       <Container>

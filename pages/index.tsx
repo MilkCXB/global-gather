@@ -57,7 +57,7 @@ const Home: NextPage = () => {
   }, [])
 
   return (
-    <Page title={"Torai"}>
+    <Page title={"KLEIN"}>
       <Wrapper>
         <Header refs={refs} />
 

@@ -13,6 +13,8 @@ import { Trans } from "@lingui/macro"
 import { ColorfulRect, CustomTheme } from "@/src/theme"
 import { imgLazyload } from "@/src/utils/img"
 import card_bg from "@/public/images/card_bg.png"
+import { useEffect, useCallback, useState } from "react"
+import { getCurrency } from "./data"
 
 const Wrapper = styled("div")(({ theme }) => ({
   display: "flex",
@@ -32,9 +34,8 @@ const ContentBox = styled("div")(({ theme }) => ({
   "&::-webkit-scrollbar": { display: "none" },
 }))
 const Card1 = styled("div")(({ theme }) => ({
-  padding: "66px 72px",
+  padding: "60px 65px",
   borderRadius: "30px",
-
   background:
     "linear-gradient(270deg, #14081E 0%, #14081E 32%, #14081E 71%, #14081E 100%)",
 }))
@@ -56,159 +57,99 @@ const Card2 = styled("div")(({ theme }) => ({
   background: `url(${card_bg}) no-repeat`,
   backgroundSize: "100%",
 }))
-
+interface CurrencyType {
+  currencyName: string
+  price: number
+  trend: number
+}
 export default function TotalTrading() {
   const isXs = useMediaQuery((theme: CustomTheme) =>
     theme.breakpoints.down("sm")
   )
 
+  const [currencyList, setCurrencyList] = useState<CurrencyType[]>()
+  const getCurrencyInfo = useCallback(async () => {
+    const list = await getCurrency()
+    setCurrencyList(list)
+  }, [])
+  useEffect(() => {
+    getCurrencyInfo()
+  }, [])
   return (
     <Wrapper>
       <ContentBox>
-        <Card1>
-          <Stack flexDirection={"row"}>
-            <Box
-              sx={{
-                background: "#F9934A",
-                width: "81px",
-                height: "81px",
-                borderRadius: "50%",
-              }}
-            ></Box>
-            <Box sx={{ ml: { sm: "12px" } }}>
-              <Stack flexDirection={"row"}>
-                <Typography color={"#FCFBFF"} fontSize={{ sm: 22 }}>
-                  BTCB
-                </Typography>
-                <Typography
-                  color={"#F14159"}
-                  fontSize={{ sm: 24 }}
-                  sx={{ ml: { sm: "12px" } }}
-                >
-                  3.89%
-                </Typography>
-              </Stack>
-              <Typography
-                color={"#FCFBFF"}
-                sx={{ mt: "16px", fontSize: { sm: "32px" } }}
-                whiteSpace={"nowrap"}
-              >
-                $ 4.208.87
-              </Typography>
-            </Box>
-          </Stack>
-        </Card1>
-        <Card1>
-          <Stack flexDirection={"row"}>
-            <Box
-              sx={{
-                background: "#F9934A",
-                width: "81px",
-                height: "81px",
-                borderRadius: "50%",
-              }}
-            ></Box>
-            <Box sx={{ ml: { sm: "12px" } }}>
-              <Stack flexDirection={"row"}>
-                <Typography color={"#FCFBFF"} fontSize={{ sm: 22 }}>
-                  BTCB
-                </Typography>
-                <Typography
-                  color={"#F14159"}
-                  fontSize={{ sm: 24 }}
-                  sx={{ ml: { sm: "12px" } }}
-                >
-                  3.89%
-                </Typography>
-              </Stack>
-              <Typography
-                color={"#FCFBFF"}
-                sx={{ mt: "16px", fontSize: { sm: "32px" } }}
-                whiteSpace={"nowrap"}
-              >
-                $ 4.208.87
-              </Typography>
-            </Box>
-          </Stack>
-        </Card1>
-        <Card1>
-          <Stack flexDirection={"row"}>
-            <Box
-              sx={{
-                background: "#F9934A",
-                width: "81px",
-                height: "81px",
-                borderRadius: "50%",
-              }}
-            ></Box>
-            <Box sx={{ ml: { sm: "12px" } }}>
-              <Stack flexDirection={"row"}>
-                <Typography color={"#FCFBFF"} fontSize={{ sm: 22 }}>
-                  BTCB
-                </Typography>
-                <Typography
-                  color={"#F14159"}
-                  fontSize={{ sm: 24 }}
-                  sx={{ ml: { sm: "12px" } }}
-                >
-                  3.89%
-                </Typography>
-              </Stack>
-              <Typography
-                color={"#FCFBFF"}
-                sx={{ mt: "16px", fontSize: { sm: "32px" } }}
-                whiteSpace={"nowrap"}
-              >
-                $ 4.208.87
-              </Typography>
-            </Box>
-          </Stack>
-        </Card1>
-        <Card1>
-          <Stack flexDirection={"row"}>
-            <Box
-              sx={{
-                background: "#F9934A",
-                width: "81px",
-                height: "81px",
-                borderRadius: "50%",
-              }}
-            ></Box>
-            <Box sx={{ ml: { sm: "12px" } }}>
-              <Stack flexDirection={"row"}>
-                <Typography color={"#FCFBFF"} fontSize={{ sm: 22 }}>
-                  BTCB
-                </Typography>
-                <Typography
-                  color={"#F14159"}
-                  fontSize={{ sm: 24 }}
-                  sx={{ ml: { sm: "12px" } }}
-                >
-                  3.89%
-                </Typography>
-              </Stack>
-              <Typography
-                color={"#FCFBFF"}
-                sx={{ mt: "16px", fontSize: { sm: "32px" } }}
-                whiteSpace={"nowrap"}
-              >
-                $ 4.208.87
-              </Typography>
-            </Box>
-          </Stack>
-        </Card1>
+        {currencyList &&
+          currencyList.map((item, index) => {
+            return (
+              <Card1 key={index}>
+                <Stack flexDirection={"row"}>
+                  <Box
+                    sx={{
+                      background: "#F9934A",
+                      width: "81px",
+                      height: "81px",
+                      borderRadius: "50%",
+                    }}
+                  ></Box>
+                  <Box sx={{ ml: { sm: "12px" }, minWidth: { sm: "170px" } }}>
+                    <Stack flexDirection={"row"}>
+                      <Typography color={"#FCFBFF"} fontSize={{ sm: 22 }}>
+                        {item?.currencyName}
+                      </Typography>
+                      <Typography
+                        color={item?.trend > 0 ? "#5dc691" : "#F14159"}
+                        fontSize={{ sm: 24 }}
+                        sx={{
+                          ml: {
+                            sm: "12px",
+                            display: "flex",
+                            alignItems: "center",
+                          },
+                        }}
+                        whiteSpace={"nowrap"}
+                      >
+                        <Icon
+                          icon={
+                            item?.trend > 0
+                              ? "akar-icons:arrow-up"
+                              : "akar-icons:arrow-down"
+                          }
+                        />
+                        {item?.trend && Math.abs(item.trend)}%
+                      </Typography>
+                    </Stack>
+                    <Typography
+                      color={"#FCFBFF"}
+                      sx={{ mt: "16px", fontSize: { sm: "32px" } }}
+                      whiteSpace={"nowrap"}
+                    >
+                      $ {item?.price}
+                    </Typography>
+                  </Box>
+                </Stack>
+              </Card1>
+            )
+          })}
       </ContentBox>
       <TotalCard>
         <Card2>
           <Stack spacing={3}>
-            <Typography color={"#AFB3C8"}>Total Value Locked</Typography>
-            <Typography color={"#fff"}>$ 46,639,222,31</Typography>
+            <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "20px" } }}>
+              Total Value Locked
+            </Typography>
+            <Typography color={"#fff"} sx={{ fontSize: { sm: "32px" } }}>
+              $ 46,639,222,31
+            </Typography>
           </Stack>
         </Card2>
         <Card2>
           <Stack spacing={3}>
-            <Typography color={"#AFB3C8"}>Total Value Locked</Typography>
-            <Typography color={"#fff"}>$ 46,639,222,31</Typography>
+            <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "20px" } }}>
+              Total Value Locked
+            </Typography>
+            <Typography color={"#fff"} sx={{ fontSize: { sm: "32px" } }}>
+              $ 46,639,222,31
+            </Typography>
           </Stack>
         </Card2>
       </TotalCard>

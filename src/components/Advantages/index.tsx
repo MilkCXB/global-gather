@@ -40,7 +40,7 @@ export const Title = styled("div")`
   font-weight: 24px;
   color: #fff;
   width: fit-content;
-  font-family: TimesNewRomanPS-BoldMT, TimesNewRomanPS;
+  font-family: "Inter-Regular_Bold";
   margin: 0 auto;
   :after {
     content: "";
@@ -63,7 +63,7 @@ export const Title = styled("div")`
 const FlexWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   flexWrap: "wrap",
-  justifyContent: "space-around",
+  justifyContent: "space-between",
 }))
 
 const Card1 = styled("div")(({ theme }) => ({
@@ -71,7 +71,12 @@ const Card1 = styled("div")(({ theme }) => ({
   maxHeight: "761px",
   padding: "80px 42px 68px",
   borderRadius: "30px",
+  border: "1px solid transparent",
+
   background: "linear-gradient(180deg, #18223C 0%, #1F113B 100%)",
+  "&:hover": {
+    border: "1px solid rgba(142, 46, 246, 1)",
+  },
 }))
 const Text = styled(Typography)(({ theme }) => ({
   color: "#AFB3C8",
@@ -100,7 +105,7 @@ export default function Advantages() {
         <FlexWrapper>
           <Grid sm={5}>
             <Card1>
-              <Text fontSize={20}>
+              <Text sx={{ fontSize: { sm: "20px" } }}>
                 Klein Finance and automated market-making with dynamic peg
                 provide excellent solutions to a series of problems such as
                 impermanent losses, centralized liquidity, improved capital
@@ -112,7 +117,7 @@ export default function Advantages() {
           </Grid>
           <Grid sm={5}>
             <Card1 sx={{ mt: { sm: "100px" } }}>
-              <Text>
+              <Text sx={{ fontSize: { sm: "20px" } }}>
                 By depositing funds into the on-chain liquidity pool, liquidity
                 providers can obtain transaction benefits, which support
                 additional benefits for liquidity providers while improving the
@@ -123,7 +128,7 @@ export default function Advantages() {
           </Grid>
           <Grid sm={5}>
             <Card1 sx={{ mt: { sm: "46px" } }}>
-              <Text>
+              <Text sx={{ fontSize: { sm: "20px" } }}>
                 Liquidity providers are the most important participants in Klein
                 Finance, and it is the most beneficial behavior for the
                 governance of Klein Finance to allow liquidity providers to
@@ -134,7 +139,7 @@ export default function Advantages() {
           </Grid>
           <Grid sm={5}>
             <Card1 sx={{ mt: { sm: "146px" } }}>
-              <Text>
+              <Text sx={{ fontSize: { sm: "20px" } }}>
                 Klein Finance has built a robust ecosystem around governance,
                 rewards and staking. All designed to drive future growth and
                 decentralization of Klein Finance, and resulting in a better

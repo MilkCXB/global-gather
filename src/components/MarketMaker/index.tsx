@@ -87,7 +87,7 @@ export default function MarketMaker() {
   return (
     <Wrapper id="home">
       <Container>
-        <Box sx={{ mt: { sm: "200px" } }}>
+        <Box>
           <FlexWrapper>
             <Stack
               sx={{

@@ -35,8 +35,7 @@ const NavItem = styled("a")`
 `
 
 const ImgLogo = styled("img")(({ theme }) => ({
-  width: "86px",
-  height: "32px",
+  width: "100px",
   [theme.breakpoints.down("sm")]: {
     width: "43px",
     height: "16px",

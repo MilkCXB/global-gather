@@ -115,7 +115,7 @@ export default function HomePage() {
 
   const handleLunch = useCallback(() => {
     // location.href = ''
-    window.open("http://16.162.188.15:9500/")
+    window.open("http://16.162.188.15:7481/")
   }, [])
 
   return (
