@@ -56,7 +56,7 @@ const Text2 = styled("div")(({ theme }) => ({
   maxWidth: "900px",
   fontWeight: "24px",
   textAlign: "center",
-  marginTop: "96px",
+  marginTop: "80px",
 
   [theme.breakpoints.down("sm")]: {
     fontSize: "12px",
@@ -132,7 +132,7 @@ export default function HomePage() {
           market and stablecoins.
         </Text2>
 
-        <Stack flexDirection={"row"} gap={"24px"} sx={{ mt: { sm: "80px" } }}>
+        <Stack flexDirection={"row"} gap={"24px"} sx={{ mt: { sm: "70px" } }}>
           <ButtonPrimary onClick={handleLunch}>Launch App</ButtonPrimary>
           <ButtonReverse>Learn More</ButtonReverse>
         </Stack>

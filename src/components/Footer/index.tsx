@@ -17,7 +17,7 @@ import icon1 from "@/public/images/home/icon1.png"
 import icon2 from "@/public/images/home/icon2.png"
 import icon3 from "@/public/images/home/icon3.png"
 import icon4 from "@/public/images/home/icon4.png"
-import { FRIEND_LINK } from "@/src/constants/misc"
+import { FRIEND_LINK, KLEIN_LINK } from "@/src/constants/misc"
 
 const Wrapper = styled("div")(({ theme }) => ({
   // backgroundColor: theme.palette.common.black,
@@ -30,8 +30,12 @@ const Outer = styled("a")`
 const NavItem = styled("a")`
   cursor: pointer;
   display: block;
-  color: #afb3c8;
+  color: #afb3c8 !important;
   margin-top: 17px;
+  :focus,
+  :hover {
+    color: #fff !important;
+  }
 `
 
 const ImgLogo = styled("img")(({ theme }) => ({
@@ -104,10 +108,10 @@ export default function Footer() {
                       <Typography sx={{ fontSize: { sm: "16px", xs: "10px" } }}>
                         PROTOCOL
                       </Typography>
-                      <NavItem>Swap</NavItem>
-                      <NavItem>Pools</NavItem>
-                      <NavItem>DAO</NavItem>
-                      <NavItem>Factory</NavItem>
+                      <NavItem href={KLEIN_LINK.swap}>Swap</NavItem>
+                      <NavItem href={KLEIN_LINK.pool}>Farm</NavItem>
+                      <NavItem href={KLEIN_LINK.boost}>DAO</NavItem>
+                      <NavItem href={KLEIN_LINK.factory}>Factory</NavItem>
                     </Box>
                     <Box>
                       <Typography sx={{ fontSize: { sm: "16px", xs: "10px" } }}>
@@ -121,9 +125,11 @@ export default function Footer() {
                       <Typography sx={{ fontSize: { sm: "16px", xs: "10px" } }}>
                         COMMUNITY
                       </Typography>
-                      <NavItem>Twitter</NavItem>
-                      <NavItem>Discord</NavItem>
-                      <NavItem>Telegram </NavItem>
+                      <NavItem href={FRIEND_LINK.twitter}>Twitter</NavItem>
+                      <NavItem href={FRIEND_LINK.telegram}>Discord</NavItem>
+                      <NavItem href={FRIEND_LINK.channel}>Telegram </NavItem>
+                      <NavItem href={FRIEND_LINK.ins}>Ins </NavItem>
+                      <NavItem href={FRIEND_LINK.medium}>Medium </NavItem>
                     </Box>
                   </Stack>
                 </Grid>
@@ -146,7 +152,7 @@ export default function Footer() {
                         finances.
                       </Typography>
                     </Box>
-                    <Stack direction={"row"} spacing={2} alignItems={"center"}>
+                    {/* <Stack direction={"row"} spacing={2} alignItems={"center"}>
                       <Outer href={FRIEND_LINK.twitter}>
                         <FriendImg src={icon1} />
                       </Outer>
@@ -156,7 +162,7 @@ export default function Footer() {
                       <Outer href={FRIEND_LINK.channel}>
                         <FriendImg src={icon3} />
                       </Outer>
-                    </Stack>
+                    </Stack> */}
                   </Grid>
                 )}
               </Grid>
