@@ -12,8 +12,7 @@ import { Icon } from "@iconify/react"
 import { Trans } from "@lingui/macro"
 import { ColorfulRect, CustomTheme } from "@/src/theme"
 import { imgLazyload } from "@/src/utils/img"
-import token from "@/public/images/tokeneco/token.png"
-import token_h5 from "@/public/images/tokeneco/token_h5.png"
+import card_bg from "@/public/images/card_bg.png"
 
 const Wrapper = styled("div")(({ theme }) => ({
   display: "flex",
@@ -35,6 +34,7 @@ const ContentBox = styled("div")(({ theme }) => ({
 const Card1 = styled("div")(({ theme }) => ({
   padding: "66px 72px",
   borderRadius: "30px",
+
   background:
     "linear-gradient(270deg, #14081E 0%, #14081E 32%, #14081E 71%, #14081E 100%)",
 }))
@@ -53,9 +53,8 @@ const TotalCard = styled("div")(({ theme }) => ({
 }))
 const Card2 = styled("div")(({ theme }) => ({
   padding: "58px 85px",
-  borderRadius: "15px",
-  background:
-    "linear-gradient(90deg, rgba(87, 175, 251, 0.2), rgba(142, 46, 246, 0.2))",
+  background: `url(${card_bg}) no-repeat`,
+  backgroundSize: "100%",
 }))
 
 export default function TotalTrading() {

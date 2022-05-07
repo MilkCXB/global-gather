@@ -17,10 +17,13 @@ import Middle from "@/src/components/Middle"
 import Introduction from "@/src/components/Introduction"
 import HomePage from "@/src/components/Home"
 import TotalTrading from "@/src/components/TotalTrading"
+import Features from "@/src/components/Features"
+import Ecological from "@/src/components/Ecological"
+import MarketMaker from "@/src/components/MarketMaker"
 
 const Wrapper = styled("div")(({ theme }) => ({
   background: `url(${bgLarge}) no-repeat;`,
-  backgroundSize: "100%",
+  backgroundSize: "cover",
   // backgroundPosition: 'center',
   // padding: '80px 0 0',
   // backgroundColor: theme.palette.common.black,
@@ -62,29 +65,20 @@ const Home: NextPage = () => {
         <Box>
           <TotalTrading />
         </Box>
-        {/* <Box
-          sx={{
-            pt: { sm: "150px" },
-            pb: { sm: "100px" },
-            background: "#F8FAFC",
-          }}
-        >
-          <Introduction />
-        </Box> */}
 
+        <Box>
+          <Features />
+        </Box>
         <Box sx={{ pt: { sm: "160px", xs: "20px" } }}>
           <Advantages />
         </Box>
-
-        {/* <Box sx={{ pt: { sm: "160px", xs: "50px" } }}>
-          <TokenEco />
-        </Box> */}
-
-        {/* <Box>
-          <Middle />
-        </Box> */}
-
-        <Box sx={{ pt: "200px" }}>
+        <Box>
+          <Ecological />
+        </Box>
+        <Box>
+          <MarketMaker />
+        </Box>
+        <Box>
           <Footer />
         </Box>
       </Wrapper>
