@@ -29,7 +29,7 @@ const ContentBox = styled("div")(({ theme }) => ({
   justifyContent: "space-around",
 }))
 const Card1 = styled("div")(({ theme }) => ({
-  padding: "21px 30px 68px",
+  padding: "0 30px 68px",
   borderRadius: "30px",
   background: "linear-gradient(180deg, #0C0B1A 0%, #1F113B 100%)",
 }))
