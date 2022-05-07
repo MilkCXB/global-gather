@@ -4,9 +4,9 @@ yarn compile-external-abi-types
 
 yarn build
 
-docker build -t  coinflow/klein-office:latest .
+docker build --platform linux/amd64 -t  coinflow/klein-office:latest .
 
-docker login --username $DOCKER_ACCESS_NAME -p $DOCKER_ACCESS_TOKEN
+docker login --username foxdex -p a800e815-d62b-4406-ba7a-84cb4a86d534
 
 
 docker push coinflow/klein-office:latest
