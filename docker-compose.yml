@@ -1,12 +1,12 @@
 version: '3'
 
 services:
-  crvweb:
-    image: coinflow/crv-office-web:latest
-    container_name: crvweb
+  kleinweb:
+    image: coinflow/klein-office-web:latest
+    container_name: kleinweb
     restart: always
     ports:
-      - '8002:80'
+      - '7500:80'
     privileged: true
 networks:
   sp_default:

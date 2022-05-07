@@ -2,8 +2,8 @@
 
 docker login --username lend -p $DOCKER_ACCESS_TOKEN
 
-docker rm -f crvweb
+docker rm -f kleinweb
 
-docker rmi -f coinflow/crv-office-web:latest
+docker rmi -f coinflow/klein-office-web:latest
 
 docker-compose -f docker-compose.yml up -d
