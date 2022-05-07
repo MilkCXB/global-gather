@@ -34,34 +34,41 @@ export const MyImage = styled("img")(({ theme }) => ({
 }))
 const Wrapper = styled("div")``
 
-const Title = styled("div")(({ theme }) => ({
-  position: "relative",
-  fontSize: "52px",
-  fontWeight: "24px",
-  color: "#fff",
-  fontFamily: "TimesNewRomanPS-BoldMT,TimesNewRomanPS",
-  textAlign: "center",
-  "& ::after": {
-    position: "absolute",
-    width: "80%",
-    height: "5px",
-    background: "#000",
-    bottom: 0,
-  },
-  [theme.breakpoints.down("sm")]: {
-    fontSize: "26px",
-    fontWeight: "24px",
-  },
-}))
+export const Title = styled("div")`
+  position: relative;
+  font-size: 44px;
+  font-weight: 24px;
+  color: #fff;
+  width: fit-content;
+  font-family: TimesNewRomanPS-BoldMT, TimesNewRomanPS;
+  margin: 0 auto;
+  :after {
+    content: "";
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 2;
+    background: linear-gradient(
+      90deg,
+      rgba(87, 175, 251, 1),
+      rgba(142, 46, 246, 1)
+    );
+  }
+`
+
 const FlexWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   flexWrap: "wrap",
-  justifyContent: "space-between",
+  justifyContent: "space-around",
 }))
 
 const Card1 = styled("div")(({ theme }) => ({
-  width: "548px",
-  height: "761px",
+  maxWidth: "548px",
+  maxHeight: "761px",
   padding: "80px 42px 68px",
   borderRadius: "30px",
   background: "linear-gradient(180deg, #18223C 0%, #1F113B 100%)",
@@ -74,7 +81,8 @@ const Text = styled(Typography)(({ theme }) => ({
   fontSize: "20px",
 }))
 const MyImg = styled("img")(({ theme }) => ({
-  maxWidth: "329px",
+  maxWidth: "460px",
+  width: "100%",
   margin: "0 auto",
 }))
 
@@ -90,42 +98,51 @@ export default function Advantages() {
       </Stack>
       <Container>
         <FlexWrapper>
-          <Card1>
-            <Text fontSize={20}>
-              Klein Finance and automated market-making with dynamic peg provide
-              excellent solutions to a series of problems such as impermanent
-              losses, centralized liquidity, improved capital efficiency, low
-              slippage, and dynamic fees on general exchange channels.
-            </Text>
-            <MyImg src={img1} />
-          </Card1>
-          <Card1 sx={{ mt: { sm: "100px" } }}>
-            <Text>
-              By depositing funds into the on-chain liquidity pool, liquidity
-              providers can obtain transaction benefits, which support
-              additional benefits for liquidity providers while improving the
-              utilization of funds.
-            </Text>
-            <MyImg src={img2} />
-          </Card1>
-          <Card1 sx={{ mt: { sm: "46px" } }}>
-            <Text>
-              Liquidity providers are the most important participants in Klein
-              Finance, and it is the most beneficial behavior for the governance
-              of Klein Finance to allow liquidity providers to obtain the most
-              project tokens and participate in governance.
-            </Text>
-            <MyImg src={img3} />
-          </Card1>
-          <Card1 sx={{ mt: { sm: "146px" } }}>
-            <Text>
-              Klein Finance has built a robust ecosystem around governance,
-              rewards and staking. All designed to drive future growth and
-              decentralization of Klein Finance, and resulting in a better
-              experience for users
-            </Text>
-            <MyImg src={img4} />
-          </Card1>
+          <Grid sm={5}>
+            <Card1>
+              <Text fontSize={20}>
+                Klein Finance and automated market-making with dynamic peg
+                provide excellent solutions to a series of problems such as
+                impermanent losses, centralized liquidity, improved capital
+                efficiency, low slippage, and dynamic fees on general exchange
+                channels.
+              </Text>
+              <MyImg src={img1} />
+            </Card1>
+          </Grid>
+          <Grid sm={5}>
+            <Card1 sx={{ mt: { sm: "100px" } }}>
+              <Text>
+                By depositing funds into the on-chain liquidity pool, liquidity
+                providers can obtain transaction benefits, which support
+                additional benefits for liquidity providers while improving the
+                utilization of funds.
+              </Text>
+              <MyImg src={img2} />
+            </Card1>
+          </Grid>
+          <Grid sm={5}>
+            <Card1 sx={{ mt: { sm: "46px" } }}>
+              <Text>
+                Liquidity providers are the most important participants in Klein
+                Finance, and it is the most beneficial behavior for the
+                governance of Klein Finance to allow liquidity providers to
+                obtain the most project tokens and participate in governance.
+              </Text>
+              <MyImg src={img3} />
+            </Card1>
+          </Grid>
+          <Grid sm={5}>
+            <Card1 sx={{ mt: { sm: "146px" } }}>
+              <Text>
+                Klein Finance has built a robust ecosystem around governance,
+                rewards and staking. All designed to drive future growth and
+                decentralization of Klein Finance, and resulting in a better
+                experience for users
+              </Text>
+              <MyImg src={img4} />
+            </Card1>
+          </Grid>
         </FlexWrapper>
       </Container>
     </Wrapper>
