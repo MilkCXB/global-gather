@@ -65,18 +65,21 @@ const FlexWrapper = styled("div")(({ theme }) => ({
   flexWrap: "wrap",
   justifyContent: "space-between",
 }))
-
+const BorderBox = styled("div")`
+  background: linear-gradient(180deg, #18223c 0%, #1f113b 100%);
+  border-radius: 30px;
+  padding: 1px;
+  :hover {
+    background: linear-gradient(90deg, #57affb 0%, #8e2ef6 100%);
+  }
+`
 const Card1 = styled("div")(({ theme }) => ({
   maxWidth: "548px",
   maxHeight: "761px",
   padding: "80px 42px 68px",
   borderRadius: "30px",
-  border: "1px solid transparent",
 
   background: "linear-gradient(180deg, #18223C 0%, #1F113B 100%)",
-  "&:hover": {
-    border: "1px solid rgba(142, 46, 246, 1)",
-  },
 }))
 const Text = styled(Typography)(({ theme }) => ({
   color: "#AFB3C8",
@@ -104,49 +107,57 @@ export default function Advantages() {
       <Container>
         <FlexWrapper>
           <Grid sm={5}>
-            <Card1>
-              <Text sx={{ fontSize: { sm: "20px" } }}>
-                Klein Finance and automated market-making with dynamic peg
-                provide excellent solutions to a series of problems such as
-                impermanent losses, centralized liquidity, improved capital
-                efficiency, low slippage, and dynamic fees on general exchange
-                channels.
-              </Text>
-              <MyImg src={img1} />
-            </Card1>
+            <BorderBox>
+              <Card1>
+                <Text sx={{ fontSize: { sm: "20px" } }}>
+                  Klein Finance and automated market-making with dynamic peg
+                  provide excellent solutions to a series of problems such as
+                  impermanent losses, centralized liquidity, improved capital
+                  efficiency, low slippage, and dynamic fees on general exchange
+                  channels.
+                </Text>
+                <MyImg src={img1} />
+              </Card1>
+            </BorderBox>
           </Grid>
           <Grid sm={5}>
-            <Card1 sx={{ mt: { sm: "100px" } }}>
-              <Text sx={{ fontSize: { sm: "20px" } }}>
-                By depositing funds into the on-chain liquidity pool, liquidity
-                providers can obtain transaction benefits, which support
-                additional benefits for liquidity providers while improving the
-                utilization of funds.
-              </Text>
-              <MyImg src={img2} />
-            </Card1>
+            <BorderBox sx={{ mt: { sm: "100px" } }}>
+              <Card1>
+                <Text sx={{ fontSize: { sm: "20px" } }}>
+                  By depositing funds into the on-chain liquidity pool,
+                  liquidity providers can obtain transaction benefits, which
+                  support additional benefits for liquidity providers while
+                  improving the utilization of funds.
+                </Text>
+                <MyImg src={img2} />
+              </Card1>
+            </BorderBox>
           </Grid>
           <Grid sm={5}>
-            <Card1 sx={{ mt: { sm: "46px" } }}>
-              <Text sx={{ fontSize: { sm: "20px" } }}>
-                Liquidity providers are the most important participants in Klein
-                Finance, and it is the most beneficial behavior for the
-                governance of Klein Finance to allow liquidity providers to
-                obtain the most project tokens and participate in governance.
-              </Text>
-              <MyImg src={img3} />
-            </Card1>
+            <BorderBox sx={{ mt: { sm: "46px" } }}>
+              <Card1>
+                <Text sx={{ fontSize: { sm: "20px" } }}>
+                  Liquidity providers are the most important participants in
+                  Klein Finance, and it is the most beneficial behavior for the
+                  governance of Klein Finance to allow liquidity providers to
+                  obtain the most project tokens and participate in governance.
+                </Text>
+                <MyImg src={img3} />
+              </Card1>
+            </BorderBox>
           </Grid>
           <Grid sm={5}>
-            <Card1 sx={{ mt: { sm: "146px" } }}>
-              <Text sx={{ fontSize: { sm: "20px" } }}>
-                Klein Finance has built a robust ecosystem around governance,
-                rewards and staking. All designed to drive future growth and
-                decentralization of Klein Finance, and resulting in a better
-                experience for users
-              </Text>
-              <MyImg src={img4} />
-            </Card1>
+            <BorderBox sx={{ mt: { sm: "146px" } }}>
+              <Card1>
+                <Text sx={{ fontSize: { sm: "20px" } }}>
+                  Klein Finance has built a robust ecosystem around governance,
+                  rewards and staking. All designed to drive future growth and
+                  decentralization of Klein Finance, and resulting in a better
+                  experience for users
+                </Text>
+                <MyImg src={img4} />
+              </Card1>
+            </BorderBox>
           </Grid>
         </FlexWrapper>
       </Container>

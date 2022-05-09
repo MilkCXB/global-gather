@@ -14,12 +14,15 @@ import {
 import { createGradient } from "@/src/theme/palette"
 import Web3Status from "../Web3Status"
 import { debounce } from "lodash"
+import { RecolorfulButtonWrapper } from "@/src/theme/overrides/Button"
+import { lighten } from "polished"
 
 const Wrapper = styled("div")(({ theme }: { theme?: CustomTheme }) => ({
   position: "fixed",
   top: "0",
   left: "0",
   right: "0",
+  zIndex: "1",
   // background: '#FBFBFD',
   backdropFilter: "blur(20px)",
 }))
@@ -39,17 +42,26 @@ const ImgLogo = styled("img")(({ theme }) => ({
   },
 }))
 
-const MyButton = styled("div")`
-  width: fit-content;
-  padding: 7px 26px;
-  border: 1px solid #8e2ef6;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  color: #fff;
+const MyButton = styled("div")(({ theme }) => ({
+  width: "fit-content",
+  padding: "7px 26px",
+  borderRadius: "8px",
+  cursor: "pointer",
+  fontWeight: 500,
+  color: "#fff",
+  fontFamily: "Inter-Regular_Bold",
+  background: "linear-gradient(90deg, #18223c 0%, #1f113b 100%)",
+  ":hover": {
+    background: `linear-gradient(
+      90deg,
+      ${lighten(0.05, "#18223c")} 0%,
+      ${lighten(0.05, "#1f113b")} 100%
+    )`,
+  },
+
   /* border-image: linear-gradient(90deg, rgba(39, 118, 255, 1), rgba(108, 97, 255, 1)) 1 1; */
   /* background-color: rgba(108, 97, 255, 1); */
-`
+}))
 
 export enum Pages {
   HOME = "#home",
@@ -134,8 +146,9 @@ export default function Header({ refs }: HeaderProps) {
             {/* <Button sx={{ backgroundColor: theme.palette.common.black }}>
               <Typography sx={{ color: theme.palette.primary.contrastText }}>123</Typography>
             </Button> */}
-
-            <MyButton onClick={handleLunch}>Launch App</MyButton>
+            <RecolorfulButtonWrapper>
+              <MyButton onClick={handleLunch}>Launch App</MyButton>
+            </RecolorfulButtonWrapper>
           </Box>
         </Stack>
       </Box>

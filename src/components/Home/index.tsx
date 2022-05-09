@@ -1,4 +1,6 @@
 import { useActiveWeb3React, useConnectCallback } from "@/src/hooks/web3"
+import { darken, lighten, transparentize } from "polished"
+
 import {
   Box,
   Button,
@@ -7,6 +9,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material"
+
 import styled from "@mui/system/styled"
 import Link from "next/link"
 import { useCallback } from "react"
@@ -65,7 +68,7 @@ const Text2 = styled("div")(({ theme }) => ({
     textAlign: "center",
   },
 }))
-const MyButton = styled("div")(({ theme }) => ({
+const MyButton = styled(Button)(({ theme }) => ({
   width: "fit-content",
   color: "#fff",
   cursor: "pointer",
@@ -83,17 +86,28 @@ const MyButton = styled("div")(({ theme }) => ({
 const ButtonPrimary = styled(MyButton)(({ theme }) => ({
   background: "linear-gradient(90deg, #57AFFB 0%, #8E2EF6 100%)",
   fontFamily: "Inter-Regular_Bold",
+  ":hover": {
+    background: `linear-gradient(90deg, ${lighten(
+      0.05,
+      "#57AFFB"
+    )} 0%, ${lighten(0.05, "#8E2EF6")} 100%)`,
+  },
   [theme.breakpoints.down("sm")]: {
     margin: "0 auto",
   },
 }))
-const ButtonReverse = styled(MyButton)`
-  position: relative;
-  border: none;
-  border-radius: 9px;
-  border: 1px solid #8e2ef6;
-  background: linear-gradient(90deg, #18223c 0%, #1f113b 100%);
-`
+export const ButtonReverse = styled(MyButton)(({ theme }) => ({
+  position: "relative",
+  borderRadius: "9px",
+  background: "linear-gradient(90deg, #18223c 0%, #1f113b 100%)",
+  ":hover": {
+    background: `linear-gradient(
+      90deg,
+      ${lighten(0.05, "#18223c")} 0%,
+      ${lighten(0.05, "#1f113b")} 100%
+    )`,
+  },
+}))
 
 const MobileBc = styled("img")`
   width: 100%;
@@ -119,10 +133,7 @@ export default function HomePage() {
   }, [])
 
   return (
-    <Wrapper
-      id="home"
-      sx={{ pt: { xs: "120px", sm: "220px", lg: "280px", xl: "450px" } }}
-    >
+    <Wrapper id="home" sx={{ pt: "324px" }}>
       <MyStack>
         <Box>
           <TitleImg src={title_img} />
@@ -133,8 +144,12 @@ export default function HomePage() {
         </Text2>
 
         <Stack flexDirection={"row"} gap={"24px"} sx={{ mt: { sm: "70px" } }}>
-          <ButtonPrimary onClick={handleLunch}>Launch App</ButtonPrimary>
-          <ButtonReverse>Learn More</ButtonReverse>
+          <RecolorfulButtonWrapper>
+            <ButtonPrimary onClick={handleLunch}>Launch App</ButtonPrimary>
+          </RecolorfulButtonWrapper>
+          <RecolorfulButtonWrapper>
+            <ButtonReverse>Learn More</ButtonReverse>
+          </RecolorfulButtonWrapper>
         </Stack>
         {/* {isXs ? <MobileBc src={bgLargeH5} /> : null} */}
       </MyStack>
