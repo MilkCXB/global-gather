@@ -126,9 +126,9 @@ export default function Footer() {
                         COMMUNITY
                       </Typography>
                       <NavItem href={FRIEND_LINK.twitter}>Twitter</NavItem>
-                      <NavItem href={FRIEND_LINK.telegram}>Discord</NavItem>
-                      <NavItem href={FRIEND_LINK.channel}>Telegram </NavItem>
-                      <NavItem href={FRIEND_LINK.ins}>Ins </NavItem>
+                      <NavItem href={FRIEND_LINK.telegram}>Telegram </NavItem>
+                      <NavItem href={FRIEND_LINK.channel}>Channel </NavItem>
+                      <NavItem href={FRIEND_LINK.ins}>Instagram </NavItem>
                       <NavItem href={FRIEND_LINK.medium}>Medium </NavItem>
                     </Box>
                   </Stack>
