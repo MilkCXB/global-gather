@@ -20,6 +20,8 @@ import img4 from "@/public/images/feature/img4.png"
 import { Title } from "../Advantages"
 import { textAlign } from "@mui/system"
 import { useCallback } from "react"
+import { RecolorfulButtonWrapper } from "@/src/theme/overrides/Button"
+import { lighten } from "polished"
 
 const Wrapper = styled("div")(({ theme }) => ({}))
 const ContentBox = styled("div")(({ theme }) => ({
@@ -36,13 +38,23 @@ const Card1 = styled("div")(({ theme }) => ({
 const MyImage = styled("img")(({ theme }) => ({
   width: "100%",
 }))
+const RecolorfulButtonWrapper1 = styled(RecolorfulButtonWrapper)`
+  margin: 0 auto;
+  width: fit-content;
+  margin-top: 52px;
+`
 const ButtonReverse = styled(Button)(({ theme }) => ({
   padding: "10px 48px",
   color: "#fff",
   display: "block",
-  border: "1px solid #8E2EF6",
-  margin: "0 auto",
-  marginTop: "52px",
+  background: "linear-gradient(90deg, #18223c 0%, #1f113b 100%)",
+  ":hover": {
+    background: `linear-gradient(
+      90deg,
+      ${lighten(0.05, "#18223c")} 0%,
+      ${lighten(0.05, "#1f113b")} 100%
+    )`,
+  },
 }))
 const TextBox = styled(Box)`
   text-align: center;
@@ -76,13 +88,15 @@ export default function Features() {
                 <TextBox>
                   <Typography>Swap or Trade quickly and cheaply.</Typography>
                 </TextBox>
-                <ButtonReverse
-                  onClick={() => {
-                    handleSkip("swap")
-                  }}
-                >
-                  Swap
-                </ButtonReverse>
+                <RecolorfulButtonWrapper1>
+                  <ButtonReverse
+                    onClick={() => {
+                      handleSkip("swap")
+                    }}
+                  >
+                    Swap
+                  </ButtonReverse>
+                </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
             <Grid sm={3}>
@@ -93,13 +107,15 @@ export default function Features() {
                     Earn yield through fees and yield farms.
                   </Typography>
                 </TextBox>
-                <ButtonReverse
-                  onClick={() => {
-                    handleSkip("pool")
-                  }}
-                >
-                  Farm
-                </ButtonReverse>
+                <RecolorfulButtonWrapper1>
+                  <ButtonReverse
+                    onClick={() => {
+                      handleSkip("pool")
+                    }}
+                  >
+                    Farm
+                  </ButtonReverse>
+                </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
             <Grid sm={3}>
@@ -111,13 +127,15 @@ export default function Features() {
                     DAO
                   </Typography>
                 </TextBox>
-                <ButtonReverse
-                  onClick={() => {
-                    handleSkip("boost")
-                  }}
-                >
-                  Dao
-                </ButtonReverse>
+                <RecolorfulButtonWrapper1>
+                  <ButtonReverse
+                    onClick={() => {
+                      handleSkip("boost")
+                    }}
+                  >
+                    Dao
+                  </ButtonReverse>
+                </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
             <Grid sm={3}>
@@ -126,13 +144,15 @@ export default function Features() {
                 <TextBox>
                   <Typography>Provide liquidity for any SPL token.</Typography>
                 </TextBox>
-                <ButtonReverse
-                  onClick={() => {
-                    handleSkip("factory")
-                  }}
-                >
-                  Factory
-                </ButtonReverse>
+                <RecolorfulButtonWrapper1>
+                  <ButtonReverse
+                    onClick={() => {
+                      handleSkip("factory")
+                    }}
+                  >
+                    Factory
+                  </ButtonReverse>
+                </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
           </ContentBox>

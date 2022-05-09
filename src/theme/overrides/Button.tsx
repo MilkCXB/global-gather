@@ -1,15 +1,16 @@
 // ----------------------------------------------------------------------
 
-import styled from '@emotion/styled'
-import { CustomTheme } from '../index'
+import styled from "@emotion/styled"
+import { CustomTheme } from "../index"
 
 export const RecolorfulButtonWrapper = styled.div`
-  background: linear-gradient(90deg, #d650d0 0%, #bd59ff 29%, #4c86ff 66%, #44d7e8 100%);
-  padding: 2px;
+  background: linear-gradient(90deg, #57affb 0%, #8e2ef6 100%);
+
+  padding: 1px;
   border-radius: 8px;
 `
 export const RecolorfulButtonWrapper2 = styled.div`
-  background: linear-gradient(90deg, #bd59ff 0%, #4c86ff 50%, #76ee68 100%);
+  background: linear-gradient(90deg, #57affb 0%, #8e2ef6 100%);
   padding: 2px;
   border-radius: 8px;
 `
@@ -19,15 +20,15 @@ export default function Button(theme: CustomTheme) {
     MuiButton: {
       styleOverrides: {
         root: {
-          '&:hover': {
-            boxShadow: 'none',
+          "&:hover": {
+            boxShadow: "none",
           },
           padding: {
-            xs: '4px 6px',
-            sm: '8px 24px',
+            xs: "4px 6px",
+            sm: "8px 24px",
           },
 
-          color: 'inherit',
+          color: "inherit",
         },
         sizeLarge: {
           height: 48,
@@ -35,7 +36,7 @@ export default function Button(theme: CustomTheme) {
         containedInherit: {
           color: theme.palette.grey[800],
           boxShadow: theme.customShadows.z8,
-          '&:hover': {
+          "&:hover": {
             backgroundColor: theme.palette.grey[400],
           },
         },
@@ -48,12 +49,12 @@ export default function Button(theme: CustomTheme) {
         outlinedInherit: {
           // border: `1px solid ${theme.palette.grey[500_32]}`,
           border: `1px solid ${theme.palette.grey[500_32]}`,
-          '&:hover': {
+          "&:hover": {
             backgroundColor: theme.palette.action.hover,
           },
         },
         textInherit: {
-          '&:hover': {
+          "&:hover": {
             backgroundColor: theme.palette.action.hover,
           },
         },
