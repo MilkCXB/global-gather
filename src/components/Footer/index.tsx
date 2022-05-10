@@ -108,10 +108,10 @@ export default function Footer() {
                       <Typography sx={{ fontSize: { sm: "16px", xs: "10px" } }}>
                         PROTOCOL
                       </Typography>
-                      <NavItem href={KLEIN_LINK.swap}>Swap</NavItem>
-                      <NavItem href={KLEIN_LINK.pool}>Farm</NavItem>
-                      <NavItem href={KLEIN_LINK.boost}>DAO</NavItem>
-                      <NavItem href={KLEIN_LINK.factory}>Factory</NavItem>
+                      <NavItem>Swap</NavItem>
+                      <NavItem>Farm</NavItem>
+                      <NavItem>DAO</NavItem>
+                      <NavItem>Factory</NavItem>
                     </Box>
                     <Box>
                       <Typography sx={{ fontSize: { sm: "16px", xs: "10px" } }}>
