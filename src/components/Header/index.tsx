@@ -95,7 +95,7 @@ export default function Header({ refs }: HeaderProps) {
   }
   const handleLunch = useCallback(() => {
     // location.href = ''
-    window.open("http://16.162.188.15:7481/")
+    // window.open("http://16.162.188.15:7481/")
   }, [])
 
   const scrollEventListener = useMemo(() => {

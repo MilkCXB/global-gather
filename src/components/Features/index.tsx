@@ -67,7 +67,7 @@ export default function Features() {
     theme.breakpoints.down("sm")
   )
   const handleSkip = useCallback((params) => {
-    window.open(`http://16.162.188.15:7481/#/${params}`)
+    // window.open(`http://16.162.188.15:7481/#/${params}`)
   }, [])
   return (
     <Wrapper>
