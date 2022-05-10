@@ -38,7 +38,7 @@ const ContentBox = styled("div")(({ theme }) => ({
 }))
 
 const Card1 = styled("div")(({ theme }) => ({
-  padding: "60px 65px",
+  padding: "50px 55px",
   borderRadius: "30px",
   background:
     "linear-gradient(270deg, #14081E 0%, #14081E 32%, #14081E 71%, #14081E 100%)",
@@ -105,21 +105,21 @@ export default function TotalTrading() {
                 <Stack flexDirection={"row"}>
                   <Box
                     sx={{
-                      width: "81px",
-                      height: "81px",
+                      width: "70px",
+                      height: "70px",
                       borderRadius: "50%",
                     }}
                   >
                     <MyImage src={currency} />
                   </Box>
-                  <Box sx={{ ml: { sm: "12px" }, minWidth: { sm: "170px" } }}>
+                  <Box sx={{ ml: { sm: "12px" }, minWidth: { sm: "160px" } }}>
                     <Stack flexDirection={"row"}>
                       <Typography color={"#FCFBFF"} fontSize={{ sm: 22 }}>
                         {item?.currencyName}
                       </Typography>
                       <Typography
                         color={item?.trend > 0 ? "#5dc691" : "#F14159"}
-                        fontSize={{ sm: 24 }}
+                        fontSize={{ sm: 22 }}
                         sx={{
                           ml: {
                             sm: "12px",
@@ -141,7 +141,7 @@ export default function TotalTrading() {
                     </Stack>
                     <Typography
                       color={"#FCFBFF"}
-                      sx={{ mt: "16px", fontSize: { sm: "32px" } }}
+                      sx={{ mt: "16px", fontSize: { sm: "30px" } }}
                       whiteSpace={"nowrap"}
                     >
                       $ {item?.price}
@@ -167,7 +167,7 @@ export default function TotalTrading() {
         <Card2>
           <Stack spacing={3}>
             <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "20px" } }}>
-              Total Value Locked
+              Total Trading Volume
             </Typography>
             <Typography color={"#fff"} sx={{ fontSize: { sm: "32px" } }}>
               $ 46,639,222,31

@@ -21,7 +21,11 @@ import { before } from "lodash"
 import title_img from "@/public/images/home/title.png"
 
 const Wrapper = styled("div")(({ theme }) => ({
-  padding: "320px 0 400px 0",
+  // padding: "260px 0 300px 0",
+  height: "100vh",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
   [theme.breakpoints.down("sm")]: {
     background: `url(${bgLargeH5})`,
     fontWeight: "24px",
@@ -34,6 +38,7 @@ const Wrapper = styled("div")(({ theme }) => ({
 const MyStack = styled(Stack)`
   padding: 0 200px;
   align-items: center;
+  height: fit-content;
 `
 
 const Text1 = styled("div")(({ theme }) => ({
@@ -133,7 +138,7 @@ export default function HomePage() {
   }, [])
 
   return (
-    <Wrapper id="home" sx={{ pt: "324px" }}>
+    <Wrapper id="home">
       <MyStack>
         <Box>
           <TitleImg src={title_img} />
