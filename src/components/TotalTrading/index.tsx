@@ -14,7 +14,7 @@ import { ColorfulRect, CustomTheme } from "@/src/theme"
 import { imgLazyload } from "@/src/utils/img"
 import card_bg from "@/public/images/card_bg.png"
 import currency from "@/public/images/currency.png"
-import { useEffect, useCallback, useState } from "react"
+import { useEffect, useCallback, useState, useRef } from "react"
 import { getCurrency } from "./data"
 
 const Wrapper = styled("div")(({ theme }) => ({
@@ -32,8 +32,11 @@ const ContentBox = styled("div")(({ theme }) => ({
   flexWrap: "nowrap",
   overflowX: "auto",
   gap: "77px",
+  width: "100%",
+
   "&::-webkit-scrollbar": { display: "none" },
 }))
+
 const Card1 = styled("div")(({ theme }) => ({
   padding: "60px 65px",
   borderRadius: "30px",
@@ -69,6 +72,9 @@ export default function TotalTrading() {
   )
 
   const [currencyList, setCurrencyList] = useState<CurrencyType[]>()
+  const [increaseSet, setIncreaseSet] = useState(false)
+  const increaseRef = useRef<HTMLDivElement>(null)
+
   const getCurrencyInfo = useCallback(async () => {
     const list = await getCurrency()
     setCurrencyList(list)
@@ -76,9 +82,22 @@ export default function TotalTrading() {
   useEffect(() => {
     getCurrencyInfo()
   }, [])
+  useEffect(() => {
+    if (!increaseSet && increaseRef && increaseRef.current) {
+      setInterval(() => {
+        if (
+          increaseRef.current &&
+          increaseRef.current.scrollLeft !== increaseRef.current.scrollWidth
+        ) {
+          increaseRef.current.scrollTo(increaseRef.current.scrollLeft + 1, 0)
+        }
+      }, 10)
+      setIncreaseSet(true)
+    }
+  }, [increaseRef, increaseSet])
   return (
     <Wrapper>
-      <ContentBox>
+      <ContentBox ref={increaseRef}>
         {currencyList &&
           currencyList.map((item, index) => {
             return (
@@ -133,6 +152,7 @@ export default function TotalTrading() {
             )
           })}
       </ContentBox>
+
       <TotalCard>
         <Card2>
           <Stack spacing={3}>
