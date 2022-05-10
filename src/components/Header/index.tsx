@@ -24,7 +24,7 @@ const Wrapper = styled("div")(({ theme }: { theme?: CustomTheme }) => ({
   right: "0",
   zIndex: "1",
   // background: '#FBFBFD',
-  backdropFilter: "blur(20px)",
+  // backdropFilter: "blur(20px)",
 }))
 
 // const Blur = styled('div')(() => ({
