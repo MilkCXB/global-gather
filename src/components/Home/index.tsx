@@ -163,7 +163,7 @@ export default function HomePage() {
               setComingSoon1(false)
             }}
           >
-            <ButtonPrimary onClick={handleLunch} disabled={comingSoon1}>
+            <ButtonPrimary onClick={handleLunch}>
               {comingSoon1 ? "coming soon" : "Launch App "}
             </ButtonPrimary>
             {/* <ButtonTip className="tip">coming soon...</ButtonTip> */}
@@ -176,7 +176,7 @@ export default function HomePage() {
               setComingSoon2(false)
             }}
           >
-            <ButtonReverse disabled={comingSoon2}>
+            <ButtonReverse>
               {comingSoon2 ? "coming soon" : "Learn More"}
             </ButtonReverse>
             {/* <ButtonTip className="tip">coming soon</ButtonTip> */}

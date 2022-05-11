@@ -19,7 +19,7 @@ import img3 from "@/public/images/feature/img3.png"
 import img4 from "@/public/images/feature/img4.png"
 import { Title } from "../Advantages"
 import { textAlign } from "@mui/system"
-import { useCallback } from "react"
+import { useCallback, useState } from "react"
 import {
   ButtonTip,
   RecolorfulButtonWrapper,
@@ -47,9 +47,10 @@ const RecolorfulButtonWrapper1 = styled(RecolorfulButtonWrapper)`
   margin-top: 52px;
 `
 const ButtonReverse = styled(Button)(({ theme }) => ({
-  padding: "10px 48px",
+  padding: "10px 0",
   color: "#fff",
   display: "block",
+  width: "140px",
   background: "linear-gradient(90deg, #18223c 0%, #1f113b 100%)",
   ":hover": {
     background: `linear-gradient(
@@ -72,6 +73,11 @@ export default function Features() {
   const handleSkip = useCallback((params) => {
     // window.open(`http://16.162.188.15:7481/#/${params}`)
   }, [])
+  const [comingSoon1, setComingSoon1] = useState(false)
+  const [comingSoon2, setComingSoon2] = useState(false)
+  const [comingSoon3, setComingSoon3] = useState(false)
+  const [comingSoon4, setComingSoon4] = useState(false)
+
   return (
     <Wrapper>
       <Stack
@@ -96,15 +102,15 @@ export default function Features() {
                     onClick={() => {
                       handleSkip("swap")
                     }}
+                    onMouseEnter={() => {
+                      setComingSoon1(true)
+                    }}
+                    onMouseLeave={() => {
+                      setComingSoon1(false)
+                    }}
                   >
-                    Swap
+                    {comingSoon1 ? "coming soon" : "Swap"}
                   </ButtonReverse>
-                  <ButtonTip
-                    className="tip"
-                    sx={{ top: "-30px", fontSize: "18px" }}
-                  >
-                    coming soon...
-                  </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
@@ -121,15 +127,15 @@ export default function Features() {
                     onClick={() => {
                       handleSkip("pool")
                     }}
+                    onMouseEnter={() => {
+                      setComingSoon2(true)
+                    }}
+                    onMouseLeave={() => {
+                      setComingSoon2(false)
+                    }}
                   >
-                    Farm
+                    {comingSoon2 ? "coming soon" : "Farm"}
                   </ButtonReverse>
-                  <ButtonTip
-                    className="tip"
-                    sx={{ top: "-30px", fontSize: "18px" }}
-                  >
-                    coming soon...
-                  </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
@@ -147,15 +153,15 @@ export default function Features() {
                     onClick={() => {
                       handleSkip("boost")
                     }}
+                    onMouseEnter={() => {
+                      setComingSoon3(true)
+                    }}
+                    onMouseLeave={() => {
+                      setComingSoon3(false)
+                    }}
                   >
-                    Dao
+                    {comingSoon3 ? "coming soon" : "Dao"}
                   </ButtonReverse>
-                  <ButtonTip
-                    className="tip"
-                    sx={{ top: "-30px", fontSize: "18px" }}
-                  >
-                    coming soon...
-                  </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
@@ -170,15 +176,15 @@ export default function Features() {
                     onClick={() => {
                       handleSkip("factory")
                     }}
+                    onMouseEnter={() => {
+                      setComingSoon4(true)
+                    }}
+                    onMouseLeave={() => {
+                      setComingSoon4(false)
+                    }}
                   >
-                    Factory
+                    {comingSoon4 ? "coming soon" : "Factory"}
                   </ButtonReverse>
-                  <ButtonTip
-                    className="tip"
-                    sx={{ top: "-30px", fontSize: "18px" }}
-                  >
-                    coming soon...
-                  </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
