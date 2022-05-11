@@ -14,7 +14,10 @@ import {
 import { createGradient } from "@/src/theme/palette"
 import Web3Status from "../Web3Status"
 import { debounce } from "lodash"
-import { RecolorfulButtonWrapper } from "@/src/theme/overrides/Button"
+import {
+  ButtonTip,
+  RecolorfulButtonWrapper,
+} from "@/src/theme/overrides/Button"
 import { lighten } from "polished"
 
 const Wrapper = styled("div")(({ theme }: { theme?: CustomTheme }) => ({
@@ -148,6 +151,9 @@ export default function Header({ refs }: HeaderProps) {
             </Button> */}
             <RecolorfulButtonWrapper>
               <MyButton onClick={handleLunch}>Launch App</MyButton>
+              <ButtonTip className="tip" sx={{ top: "40px", fontSize: "20px" }}>
+                敬请期待...
+              </ButtonTip>
             </RecolorfulButtonWrapper>
           </Box>
         </Stack>

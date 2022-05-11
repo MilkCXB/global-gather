@@ -20,7 +20,10 @@ import img4 from "@/public/images/feature/img4.png"
 import { Title } from "../Advantages"
 import { textAlign } from "@mui/system"
 import { useCallback } from "react"
-import { RecolorfulButtonWrapper } from "@/src/theme/overrides/Button"
+import {
+  ButtonTip,
+  RecolorfulButtonWrapper,
+} from "@/src/theme/overrides/Button"
 import { lighten } from "polished"
 
 const Wrapper = styled("div")(({ theme }) => ({}))
@@ -96,6 +99,12 @@ export default function Features() {
                   >
                     Swap
                   </ButtonReverse>
+                  <ButtonTip
+                    className="tip"
+                    sx={{ top: "-30px", fontSize: "18px" }}
+                  >
+                    敬请期待...
+                  </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
@@ -115,6 +124,12 @@ export default function Features() {
                   >
                     Farm
                   </ButtonReverse>
+                  <ButtonTip
+                    className="tip"
+                    sx={{ top: "-30px", fontSize: "18px" }}
+                  >
+                    敬请期待...
+                  </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
@@ -135,6 +150,12 @@ export default function Features() {
                   >
                     Dao
                   </ButtonReverse>
+                  <ButtonTip
+                    className="tip"
+                    sx={{ top: "-30px", fontSize: "18px" }}
+                  >
+                    敬请期待...
+                  </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
@@ -152,6 +173,12 @@ export default function Features() {
                   >
                     Factory
                   </ButtonReverse>
+                  <ButtonTip
+                    className="tip"
+                    sx={{ top: "-30px", fontSize: "18px" }}
+                  >
+                    敬请期待...
+                  </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>

@@ -1,5 +1,5 @@
 import { useActiveWeb3React, useConnectCallback } from "@/src/hooks/web3"
-import { darken, lighten, transparentize } from "polished"
+import { darken, lighten, position, transparentize } from "polished"
 
 import {
   Box,
@@ -13,7 +13,10 @@ import {
 import styled from "@mui/system/styled"
 import Link from "next/link"
 import { useCallback } from "react"
-import { RecolorfulButtonWrapper } from "../../theme/overrides/Button"
+import {
+  RecolorfulButtonWrapper,
+  ButtonTip,
+} from "../../theme/overrides/Button"
 import bgLarge from "@/public/images/home/bg_home.png"
 import bgLargeH5 from "@/public/images/home/bg_home_h5.png"
 import { CustomTheme } from "@/src/theme"
@@ -151,9 +154,11 @@ export default function HomePage() {
         <Stack flexDirection={"row"} gap={"24px"} sx={{ mt: { sm: "70px" } }}>
           <RecolorfulButtonWrapper>
             <ButtonPrimary onClick={handleLunch}>Launch App</ButtonPrimary>
+            <ButtonTip className="tip">敬请期待...</ButtonTip>
           </RecolorfulButtonWrapper>
           <RecolorfulButtonWrapper>
             <ButtonReverse>Learn More</ButtonReverse>
+            <ButtonTip className="tip">敬请期待...</ButtonTip>
           </RecolorfulButtonWrapper>
         </Stack>
         {/* {isXs ? <MobileBc src={bgLargeH5} /> : null} */}
