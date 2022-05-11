@@ -103,7 +103,7 @@ export default function Features() {
                     className="tip"
                     sx={{ top: "-30px", fontSize: "18px" }}
                   >
-                    敬请期待...
+                    coming soon...
                   </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
@@ -128,7 +128,7 @@ export default function Features() {
                     className="tip"
                     sx={{ top: "-30px", fontSize: "18px" }}
                   >
-                    敬请期待...
+                    coming soon...
                   </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
@@ -154,7 +154,7 @@ export default function Features() {
                     className="tip"
                     sx={{ top: "-30px", fontSize: "18px" }}
                   >
-                    敬请期待...
+                    coming soon...
                   </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>
@@ -177,7 +177,7 @@ export default function Features() {
                     className="tip"
                     sx={{ top: "-30px", fontSize: "18px" }}
                   >
-                    敬请期待...
+                    coming soon...
                   </ButtonTip>
                 </RecolorfulButtonWrapper1>
               </Card1>

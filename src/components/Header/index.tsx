@@ -131,6 +131,7 @@ export default function Header({ refs }: HeaderProps) {
       document.removeEventListener("scroll", scrollEventListener)
     }
   }, [scrollEventListener])
+  const [comingSoon, setComingSoon] = useState(false)
 
   return (
     <Wrapper>
@@ -150,10 +151,20 @@ export default function Header({ refs }: HeaderProps) {
               <Typography sx={{ color: theme.palette.primary.contrastText }}>123</Typography>
             </Button> */}
             <RecolorfulButtonWrapper>
-              <MyButton onClick={handleLunch}>Launch App</MyButton>
-              <ButtonTip className="tip" sx={{ top: "40px", fontSize: "20px" }}>
-                敬请期待...
-              </ButtonTip>
+              <MyButton
+                onClick={handleLunch}
+                onMouseEnter={() => {
+                  setComingSoon(true)
+                }}
+                onMouseLeave={() => {
+                  setComingSoon(false)
+                }}
+              >
+                {comingSoon ? "coming soon" : "Launch App "}
+              </MyButton>
+              {/* <ButtonTip className="tip" sx={{ top: "40px", fontSize: "20px" }}>
+                coming soon...
+              </ButtonTip> */}
             </RecolorfulButtonWrapper>
           </Box>
         </Stack>

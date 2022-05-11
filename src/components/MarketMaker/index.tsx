@@ -103,7 +103,7 @@ export default function MarketMaker() {
               <IconImg src={img3} sx={{ width: "180px" }} />
             </IconWrapper>
           </FlexWrapper>
-          <FlexWrapper>
+          {/* <FlexWrapper>
             <Stack
               sx={{
                 mb: { sm: "130px", xs: "76px" },
@@ -117,7 +117,7 @@ export default function MarketMaker() {
               <IconImg src={img5} />
               <IconImg src={img6} />
             </IconWrapper>
-          </FlexWrapper>
+          </FlexWrapper> */}
         </Box>
       </Container>
     </Wrapper>

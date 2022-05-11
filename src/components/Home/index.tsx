@@ -12,7 +12,7 @@ import {
 
 import styled from "@mui/system/styled"
 import Link from "next/link"
-import { useCallback } from "react"
+import { useCallback, useState } from "react"
 import {
   RecolorfulButtonWrapper,
   ButtonTip,
@@ -77,12 +77,14 @@ const Text2 = styled("div")(({ theme }) => ({
   },
 }))
 const MyButton = styled(Button)(({ theme }) => ({
-  width: "fit-content",
+  // width: "fit-content",
   color: "#fff",
   cursor: "pointer",
-  padding: "16px 56px",
+  padding: "16px 0",
   borderRadius: "9px",
   fontSize: "24px",
+  width: "260px",
+  textAlign: "center",
   fontFamily: "Inter-Regular_Bold",
   [theme.breakpoints.down("sm")]: {
     fontSize: "12px",
@@ -139,7 +141,8 @@ export default function HomePage() {
     // location.href = ''
     // window.open("http://16.162.188.15:7481/")
   }, [])
-
+  const [comingSoon1, setComingSoon1] = useState(false)
+  const [comingSoon2, setComingSoon2] = useState(false)
   return (
     <Wrapper id="home">
       <MyStack>
@@ -152,13 +155,31 @@ export default function HomePage() {
         </Text2>
 
         <Stack flexDirection={"row"} gap={"24px"} sx={{ mt: { sm: "70px" } }}>
-          <RecolorfulButtonWrapper>
-            <ButtonPrimary onClick={handleLunch}>Launch App</ButtonPrimary>
-            <ButtonTip className="tip">敬请期待...</ButtonTip>
+          <RecolorfulButtonWrapper
+            onMouseEnter={() => {
+              setComingSoon1(true)
+            }}
+            onMouseLeave={() => {
+              setComingSoon1(false)
+            }}
+          >
+            <ButtonPrimary onClick={handleLunch} disabled={comingSoon1}>
+              {comingSoon1 ? "coming soon" : "Launch App "}
+            </ButtonPrimary>
+            {/* <ButtonTip className="tip">coming soon...</ButtonTip> */}
           </RecolorfulButtonWrapper>
-          <RecolorfulButtonWrapper>
-            <ButtonReverse>Learn More</ButtonReverse>
-            <ButtonTip className="tip">敬请期待...</ButtonTip>
+          <RecolorfulButtonWrapper
+            onMouseEnter={() => {
+              setComingSoon2(true)
+            }}
+            onMouseLeave={() => {
+              setComingSoon2(false)
+            }}
+          >
+            <ButtonReverse disabled={comingSoon2}>
+              {comingSoon2 ? "coming soon" : "Learn More"}
+            </ButtonReverse>
+            {/* <ButtonTip className="tip">coming soon</ButtonTip> */}
           </RecolorfulButtonWrapper>
         </Stack>
         {/* {isXs ? <MobileBc src={bgLargeH5} /> : null} */}
