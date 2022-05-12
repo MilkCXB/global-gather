@@ -12,3 +12,6 @@ export const KLEIN_LINK = {
   boost: "http://16.162.188.15:7481/#/boost",
   factory: "http://16.162.188.15:7481/#/factory",
 }
+export const SUPPORT_LINK = {
+  documentation: "https://klein-finance.gitbook.io/product-docs/",
+}

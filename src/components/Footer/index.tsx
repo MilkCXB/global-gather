@@ -17,7 +17,7 @@ import icon1 from "@/public/images/home/icon1.png"
 import icon2 from "@/public/images/home/icon2.png"
 import icon3 from "@/public/images/home/icon3.png"
 import icon4 from "@/public/images/home/icon4.png"
-import { FRIEND_LINK, KLEIN_LINK } from "@/src/constants/misc"
+import { FRIEND_LINK, KLEIN_LINK, SUPPORT_LINK } from "@/src/constants/misc"
 
 const Wrapper = styled("div")(({ theme }) => ({
   // backgroundColor: theme.palette.common.black,
@@ -117,7 +117,12 @@ export default function Footer() {
                       <Typography sx={{ fontSize: { sm: "16px", xs: "10px" } }}>
                         SUPPORT
                       </Typography>
-                      <NavItem>Documentation</NavItem>
+                      <NavItem
+                        href={SUPPORT_LINK.documentation}
+                        target="_blank"
+                      >
+                        Documentation
+                      </NavItem>
                       <NavItem>FAQ</NavItem>
                       <NavItem>Contracts</NavItem>
                     </Box>
@@ -125,11 +130,21 @@ export default function Footer() {
                       <Typography sx={{ fontSize: { sm: "16px", xs: "10px" } }}>
                         COMMUNITY
                       </Typography>
-                      <NavItem href={FRIEND_LINK.twitter}>Twitter</NavItem>
-                      <NavItem href={FRIEND_LINK.telegram}>Telegram </NavItem>
-                      <NavItem href={FRIEND_LINK.channel}>Channel </NavItem>
-                      <NavItem href={FRIEND_LINK.ins}>Instagram </NavItem>
-                      <NavItem href={FRIEND_LINK.medium}>Medium </NavItem>
+                      <NavItem href={FRIEND_LINK.twitter} target="_blank">
+                        Twitter
+                      </NavItem>
+                      <NavItem href={FRIEND_LINK.telegram} target="_blank">
+                        Telegram{" "}
+                      </NavItem>
+                      <NavItem href={FRIEND_LINK.channel} target="_blank">
+                        Channel{" "}
+                      </NavItem>
+                      <NavItem href={FRIEND_LINK.ins} target="_blank">
+                        Instagram{" "}
+                      </NavItem>
+                      <NavItem href={FRIEND_LINK.medium} target="_blank">
+                        Medium{" "}
+                      </NavItem>
                     </Box>
                   </Stack>
                 </Grid>
