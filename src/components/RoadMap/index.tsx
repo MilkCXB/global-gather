@@ -29,13 +29,13 @@ import active_q4 from "@/public/images/roadmap/2022Q4.png"
 import active_q1 from "@/public/images/roadmap/2023Q1.png"
 import { fontSize } from "@mui/system"
 enum TabControl {
-  Q1 = "q1",
-  Q2 = "q2",
-  Q3 = "q3",
-  Q4 = "q4",
+  Q1 = "Q1",
+  Q2 = "Q2",
+  Q3 = "Q3",
+  Q4 = "Q4",
 }
 type refsProps = {
-  [key in TabControl]: RefObject<HTMLDivElement>
+  [key in TabControl]: RefObject<HTMLDivElement | null>
 }
 const Wrapper = styled("div")((theme) => ({
   padding: "124px 0 240px 0",
@@ -105,22 +105,18 @@ const TextYear = styled("div")`
 export default function RoadMap() {
   const theme: CustomTheme = useTheme()
   const { account } = useActiveWeb3React()
-  const q1 = useRef<HTMLDivElement>(null)
-  const q2 = useRef<HTMLDivElement>(null)
-  const q3 = useRef<HTMLDivElement>(null)
-  const q4 = useRef<HTMLDivElement>(null)
-  const refs = { q1, q2, q3, q4 }
+  const Q1 = useRef<HTMLDivElement>(null)
+  const Q2 = useRef<HTMLDivElement>(null)
+  const Q3 = useRef<HTMLDivElement>(null)
+  const Q4 = useRef<HTMLDivElement>(null)
+  const refs: refsProps = { Q1, Q2, Q3, Q4 }
   const [activeItem, setActiveItem] = useState<TabControl>(TabControl.Q2)
   const [coverClientwidth, setCoverClientWidth] = useState<number>(0)
   useEffect(() => {
-    if (
-      activeItem &&
-      refs[activeItem] &&
-      refs[activeItem].current &&
-      refs[activeItem].current.offsetLeft
-    ) {
-      setCoverClientWidth(refs[activeItem].current.offsetLeft + 3)
-    }
+    const demo = refs[activeItem].current
+
+    if (!demo) return
+    setCoverClientWidth(demo.offsetLeft + 3)
   }, [activeItem])
   const handleChange = useCallback((activeItem) => {
     setActiveItem(activeItem)
@@ -244,7 +240,7 @@ export default function RoadMap() {
           <CoverageBackground clientWidth={coverClientwidth} />
           <Container>
             <Stack direction={"row"} sx={{}}>
-              <ItemTab ref={q2}>
+              <ItemTab ref={Q2}>
                 <IconImg
                   src={activeItem === TabControl.Q2 ? active_icon2 : icon2}
                   onClick={() => {
@@ -252,7 +248,7 @@ export default function RoadMap() {
                   }}
                 />
               </ItemTab>
-              <ItemTab ref={q3}>
+              <ItemTab ref={Q3}>
                 {" "}
                 <IconImg
                   src={activeItem === TabControl.Q3 ? active_icon3 : icon3}
@@ -261,7 +257,7 @@ export default function RoadMap() {
                   }}
                 />
               </ItemTab>
-              <ItemTab ref={q4}>
+              <ItemTab ref={Q4}>
                 {" "}
                 <IconImg
                   src={activeItem === TabControl.Q4 ? active_icon4 : icon4}
@@ -270,7 +266,7 @@ export default function RoadMap() {
                   }}
                 />
               </ItemTab>
-              <ItemTab ref={q1}>
+              <ItemTab ref={Q1}>
                 {" "}
                 <IconImg
                   src={activeItem === TabControl.Q1 ? active_icon1 : icon1}
