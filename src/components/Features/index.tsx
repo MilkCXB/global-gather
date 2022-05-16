@@ -25,8 +25,13 @@ import {
   RecolorfulButtonWrapper,
 } from "@/src/theme/overrides/Button"
 import { lighten } from "polished"
+import card_bg from "@/public/images/card_bg.png"
 
-const Wrapper = styled("div")(({ theme }) => ({}))
+const Wrapper = styled("div")(({ theme }) => ({
+  position: "relative",
+  padding: "200px 0 155px 0",
+  background: "linear-gradient(141deg, #2D385E 0%, #14081E 100%)",
+}))
 const ContentBox = styled("div")(({ theme }) => ({
   display: "flex",
   flexWrap: "nowrap",
@@ -66,6 +71,25 @@ const TextBox = styled(Box)`
   margin-top: 54px;
   color: #afb3c8;
 `
+const TotalCard = styled(Container)(({ theme }) => ({
+  display: "flex",
+  position: "absolute",
+  zIndex: 3,
+  justifyContent: "center",
+  top: 0,
+  transform: "translateY(-50%)",
+  left: "0",
+  right: "0",
+  margin: "auto",
+  gap: "54px",
+}))
+const Card2 = styled("div")(({ theme }) => ({
+  padding: "32px 0",
+  textAlign: "center",
+  flex: 1,
+  background: `url(${card_bg}) no-repeat`,
+  backgroundSize: "100% 100%",
+}))
 export default function Features() {
   const isXs = useMediaQuery((theme: CustomTheme) =>
     theme.breakpoints.down("sm")
@@ -83,7 +107,6 @@ export default function Features() {
       <Stack
         sx={{
           mb: { sm: "130px", xs: "76px" },
-          mt: { xs: "30px", sm: "200px" },
         }}
       >
         <Title>Features</Title>
@@ -191,6 +214,47 @@ export default function Features() {
           </ContentBox>
         </Grid>
       </Container>
+      <TotalCard>
+        <Card2>
+          <Stack>
+            <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "16px" } }}>
+              Total Value Locked
+            </Typography>
+            <Typography
+              color={"#FCFBFF"}
+              sx={{ fontSize: { sm: "36px", mt: "8px" } }}
+            >
+              $2.29B
+            </Typography>
+          </Stack>
+        </Card2>
+        <Card2>
+          <Stack>
+            <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "16px" } }}>
+              Total Trading Volume
+            </Typography>
+            <Typography
+              color={"#FCFBFF"}
+              sx={{ fontSize: { sm: "36px", mt: "8px" } }}
+            >
+              $218.47M
+            </Typography>
+          </Stack>
+        </Card2>
+        <Card2>
+          <Stack>
+            <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "16px" } }}>
+              Total Users
+            </Typography>
+            <Typography
+              color={"#FCFBFF"}
+              sx={{ fontSize: { sm: "36px", mt: "8px" } }}
+            >
+              13.72K
+            </Typography>
+          </Stack>
+        </Card2>
+      </TotalCard>
     </Wrapper>
   )
 }

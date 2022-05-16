@@ -29,6 +29,7 @@ const Wrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  position: "relative",
   [theme.breakpoints.down("sm")]: {
     background: `url(${bgLargeH5})`,
     fontWeight: "24px",
@@ -58,7 +59,7 @@ const Text1 = styled("div")(({ theme }) => ({
   },
 }))
 const TitleImg = styled("img")(({ theme }) => ({
-  maxWidth: "600px",
+  maxWidth: "387px",
 }))
 
 const Text2 = styled("div")(({ theme }) => ({
@@ -150,8 +151,10 @@ export default function HomePage() {
           <TitleImg src={title_img} />
         </Box>
         <Text2>
-          Provide an effective mechanism for the liquidity of the long-tail
-          market and stablecoins.
+          Klein Finance is a secure and efficient decentralized trading platform
+          for digital assets Designed to allow digital assets to be traded and
+          staked for rewards in a secure and stable on-chain environment with
+          low slippage, good depth, and low fees
         </Text2>
 
         <Stack flexDirection={"row"} gap={"24px"} sx={{ mt: { sm: "70px" } }}>

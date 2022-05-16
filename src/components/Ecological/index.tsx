@@ -33,7 +33,7 @@ import { Title } from "../Advantages"
 
 const Wrapper = styled("div")`
   padding-bottom: 300px;
-  background: linear-gradient(141deg, #2d385e 0%, #14081e 100%);
+  /* background: linear-gradient(141deg, #2d385e 0%, #14081e 100%); */
 `
 
 const FlexWrapper = styled("div")`
@@ -62,8 +62,8 @@ const MiddleImg = styled("img")(({ theme }) => ({
 }))
 
 const IconImg = styled("img")(({ theme }) => ({
-  margin: "0 0 180px 0",
-  width: "202px",
+  // margin: "0 0 150px 0",
+  maxWidth: "288px",
   [theme.breakpoints.down("sm")]: {
     margin: "0 0 40px 0 ",
     width: "112px",
@@ -75,9 +75,11 @@ const IconWrapper = styled("div")(({ theme }) => ({
   marginTop: "104px",
   display: "grid",
   width: "100%",
-  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
-  alignItems: "center",
-  justifyItems: "center",
+  gridTemplateColumns: "1fr 1fr 1fr 1fr",
+  // alignItems: "center",
+  justifyItems: "space-between",
+  gridColumnGap: "20px",
+  gridRowGap: "150px",
   [theme.breakpoints.down("sm")]: {
     gridTemplateColumns: "1fr 1fr ",
     marginTop: "75px",
@@ -87,7 +89,6 @@ const IconWrapper = styled("div")(({ theme }) => ({
 const BgBox = styled("div")(({ theme }) => ({
   background: `url(${roadmapBg})`,
   backgroundSize: "cover",
-  padding: "200px 0 360px 0",
   [theme.breakpoints.down("sm")]: {
     background: `url(${roadmapBgH5})`,
     padding: "50px 0",
@@ -114,7 +115,7 @@ export default function Ecological() {
   return (
     <Wrapper id="home">
       <Container>
-        <Box sx={{ mt: { sm: "200px" } }}>
+        <Box>
           <FlexWrapper>
             <Stack
               sx={{

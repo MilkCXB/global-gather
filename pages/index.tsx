@@ -20,6 +20,7 @@ import TotalTrading from "@/src/components/TotalTrading"
 import Features from "@/src/components/Features"
 import Ecological from "@/src/components/Ecological"
 import MarketMaker from "@/src/components/MarketMaker"
+import Auditor from "@/src/components/Auditor"
 
 const Wrapper = styled("div")(({ theme }) => ({
   background: `url(${bgLarge}) no-repeat;`,
@@ -62,15 +63,24 @@ const Home: NextPage = () => {
         <Header refs={refs} />
 
         <HomePage />
-        <Box>
+        {/* <Box>
           <TotalTrading />
-        </Box>
+        </Box> */}
 
         <Box>
           <Features />
         </Box>
-        <Box sx={{ pt: { sm: "160px", xs: "20px" } }}>
+        <Box sx={{ pt: { sm: "124px", xs: "20px" }, pb: { sm: "150px" } }}>
           <Advantages />
+        </Box>
+        <Box>
+          <TokenEco />
+        </Box>
+        <Box>
+          <RoadMap />
+        </Box>
+        <Box>
+          <Auditor />
         </Box>
         <Box>
           <Ecological />

@@ -89,7 +89,7 @@ const Text = styled(Typography)(({ theme }) => ({
   fontSize: "20px",
 }))
 const MyImg = styled("img")(({ theme }) => ({
-  maxWidth: "460px",
+  maxWidth: "300px",
   width: "100%",
   margin: "0 auto",
 }))

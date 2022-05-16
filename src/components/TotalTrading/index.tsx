@@ -12,7 +12,6 @@ import { Icon } from "@iconify/react"
 import { Trans } from "@lingui/macro"
 import { ColorfulRect, CustomTheme } from "@/src/theme"
 import { imgLazyload } from "@/src/utils/img"
-import card_bg from "@/public/images/card_bg.png"
 import currency from "@/public/images/currency.png"
 import { useEffect, useCallback, useState, useRef } from "react"
 import { getCurrency } from "./data"
@@ -46,21 +45,7 @@ const Card1 = styled("div")(({ theme }) => ({
 const MyImage = styled("img")(({ theme }) => ({
   width: "100%",
 }))
-const TotalCard = styled("div")(({ theme }) => ({
-  display: "flex",
-  position: "absolute",
-  justifyContent: "center",
-  top: "-80px",
-  left: "0",
-  right: "0",
-  margin: "auto",
-  gap: "54px",
-}))
-const Card2 = styled("div")(({ theme }) => ({
-  padding: "58px 85px",
-  background: `url(${card_bg}) no-repeat`,
-  backgroundSize: "100%",
-}))
+
 interface CurrencyType {
   currencyName: string
   price: number
@@ -152,29 +137,6 @@ export default function TotalTrading() {
             )
           })}
       </ContentBox>
-
-      <TotalCard>
-        <Card2>
-          <Stack spacing={3}>
-            <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "20px" } }}>
-              Total Value Locked
-            </Typography>
-            <Typography color={"#fff"} sx={{ fontSize: { sm: "32px" } }}>
-              $ 46,639,222,31
-            </Typography>
-          </Stack>
-        </Card2>
-        <Card2>
-          <Stack spacing={3}>
-            <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "20px" } }}>
-              Total Trading Volume
-            </Typography>
-            <Typography color={"#fff"} sx={{ fontSize: { sm: "32px" } }}>
-              $ 46,639,222,31
-            </Typography>
-          </Stack>
-        </Card2>
-      </TotalCard>
     </Wrapper>
   )
 }

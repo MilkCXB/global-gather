@@ -16,22 +16,25 @@ import { ColorfulRect, CustomTheme } from "@/src/theme"
 import { imgLazyload } from "@/src/utils/img"
 import token from "@/public/images/tokeneco/token.png"
 import token_h5 from "@/public/images/tokeneco/token_h5.png"
+import auditorImg from "@/public/images/auditor/img1.png"
 
 const Wrapper = styled("div")(({ theme }) => ({
-  padding: "124px 0 211px 0 ",
+  padding: "130px 0 252px 0 ",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  background: "linear-gradient(141deg, #2D385E 0%, #14081E 100%)",
-
   alignItems: "center",
+  background: "linear-gradient(141deg, #2d385e 0%, #14081e 100%)",
+
   [theme.breakpoints.down("sm")]: {
     padding: "50px 0 100px 0",
   },
 }))
 
 export const MyImage = styled("img")(({ theme }) => ({
-  width: "100%",
+  MaxWidth: "322px",
+
+  margin: "0 auto",
 }))
 
 const MiddleImg = styled("img")(({ theme }) => ({
@@ -42,7 +45,7 @@ const MiddleImg = styled("img")(({ theme }) => ({
     width: "303px",
   },
 }))
-export default function TokenEco() {
+export default function Auditor() {
   const isXs = useMediaQuery((theme: CustomTheme) =>
     theme.breakpoints.down("sm")
   )
@@ -54,10 +57,9 @@ export default function TokenEco() {
           mb: { sm: "130px", xs: "76px" },
         }}
       >
-        <Title>Token Economics</Title>
+        <Title>Auditor</Title>
       </Stack>
-
-      {isXs ? <MiddleImg src={token_h5} /> : <MiddleImg src={token} />}
+      <MyImage src={auditorImg} />
     </Wrapper>
   )
 }
