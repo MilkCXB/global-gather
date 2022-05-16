@@ -91,7 +91,7 @@ const Text = styled(Typography)(({ theme }) => ({
 const MyImg = styled("img")(({ theme }) => ({
   maxWidth: "300px",
   width: "100%",
-  margin: "0 auto",
+  margin: "15px auto",
 }))
 
 export default function Advantages() {
