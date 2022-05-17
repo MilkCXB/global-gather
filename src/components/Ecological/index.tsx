@@ -33,6 +33,9 @@ import { Title } from "../Advantages"
 
 const Wrapper = styled("div")`
   padding-bottom: 300px;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding-bottom: 78px;
+  }
   /* background: linear-gradient(141deg, #2d385e 0%, #14081e 100%); */
 `
 
@@ -65,9 +68,7 @@ const IconImg = styled("img")(({ theme }) => ({
   // margin: "0 0 150px 0",
   maxWidth: "288px",
   [theme.breakpoints.down("sm")]: {
-    margin: "0 0 40px 0 ",
-    width: "112px",
-    height: "40px",
+    width: "145px",
   },
 }))
 
@@ -83,6 +84,10 @@ const IconWrapper = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     gridTemplateColumns: "1fr 1fr ",
     marginTop: "75px",
+    gridColumnGap: "25px",
+    gridRowGap: "50px",
+    padding: "0 15px",
+
     // gridGap: '20px',
   },
 }))
@@ -119,8 +124,8 @@ export default function Ecological() {
           <FlexWrapper>
             <Stack
               sx={{
-                mb: { sm: "130px", xs: "76px" },
-                mt: { xs: "30px", sm: "160px" },
+                mb: { sm: "130px" },
+                mt: { xs: "65px", sm: "160px" },
               }}
             >
               <Title>Ecological support</Title>

@@ -31,17 +31,30 @@ const Wrapper = styled("div")(({ theme }) => ({
   position: "relative",
   padding: "200px 0 155px 0",
   background: "linear-gradient(141deg, #2D385E 0%, #14081E 100%)",
+  [theme.breakpoints.down("sm")]: {
+    padding: "86px 0 78px 0",
+  },
 }))
 const ContentBox = styled("div")(({ theme }) => ({
   display: "flex",
   flexWrap: "nowrap",
   gap: "44px",
   justifyContent: "space-around",
+  [theme.breakpoints.down("sm")]: {
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    gap: "2px",
+  },
 }))
 const Card1 = styled("div")(({ theme }) => ({
-  padding: "0 30px 68px",
+  padding: "0 0 68px",
   borderRadius: "30px",
   background: "linear-gradient(180deg, #0C0B1A 0%, #1F113B 100%)",
+  [theme.breakpoints.down("sm")]: {
+    padding: "0 0 32px",
+    marginTop: "20px",
+    borderRadius: "15px",
+  },
 }))
 const MyImage = styled("img")(({ theme }) => ({
   width: "100%",
@@ -50,6 +63,9 @@ const RecolorfulButtonWrapper1 = styled(RecolorfulButtonWrapper)`
   margin: 0 auto;
   width: fit-content;
   margin-top: 52px;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    margin-top: 30px;
+  }
 `
 const ButtonReverse = styled(Button)(({ theme }) => ({
   padding: "10px 0",
@@ -64,12 +80,20 @@ const ButtonReverse = styled(Button)(({ theme }) => ({
       ${lighten(0.05, "#1f113b")} 100%
     )`,
   },
+  [theme.breakpoints.down("sm")]: {
+    width: "100px",
+    fontSize: "14px",
+  },
 }))
 const TextBox = styled(Box)`
   text-align: center;
   min-height: 72px;
   margin-top: 54px;
   color: #afb3c8;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    margin-top: 32px;
+    min-height: 78px;
+  }
 `
 const TotalCard = styled(Container)(({ theme }) => ({
   display: "flex",
@@ -82,6 +106,10 @@ const TotalCard = styled(Container)(({ theme }) => ({
   right: "0",
   margin: "auto",
   gap: "54px",
+  [theme.breakpoints.down("sm")]: {
+    gap: "10px",
+    justifyContent: "space-between",
+  },
 }))
 const Card2 = styled("div")(({ theme }) => ({
   padding: "32px 0",
@@ -89,6 +117,10 @@ const Card2 = styled("div")(({ theme }) => ({
   flex: 1,
   background: `url(${card_bg}) no-repeat`,
   backgroundSize: "100% 100%",
+  [theme.breakpoints.down("sm")]: {
+    padding: "9px 12px",
+    width: "102px",
+  },
 }))
 export default function Features() {
   const isXs = useMediaQuery((theme: CustomTheme) =>
@@ -106,7 +138,7 @@ export default function Features() {
     <Wrapper>
       <Stack
         sx={{
-          mb: { sm: "130px", xs: "76px" },
+          mb: { sm: "130px", xs: "38px" },
         }}
       >
         <Title>Features</Title>
@@ -114,11 +146,13 @@ export default function Features() {
       <Container>
         <Grid>
           <ContentBox>
-            <Grid sm={3}>
+            <Grid sm={3} xs={5.5}>
               <Card1>
                 <MyImage src={img1} />
                 <TextBox>
-                  <Typography>Swap or Trade quickly and cheaply.</Typography>
+                  <Typography sx={{ p: { sm: "0 32px", xs: "0 12px" } }}>
+                    Swap or Trade quickly and cheaply.
+                  </Typography>
                 </TextBox>
                 <RecolorfulButtonWrapper1>
                   <ButtonReverse
@@ -137,11 +171,11 @@ export default function Features() {
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
-            <Grid sm={3}>
+            <Grid sm={3} xs={5.5}>
               <Card1>
                 <MyImage src={img2} />
                 <TextBox>
-                  <Typography>
+                  <Typography sx={{ p: { sm: "32px", xs: "12px" } }}>
                     Earn yield through fees and yield farms.
                   </Typography>
                 </TextBox>
@@ -162,11 +196,11 @@ export default function Features() {
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
-            <Grid sm={3}>
+            <Grid sm={3} xs={5.5}>
               <Card1>
                 <MyImage src={img3} />
                 <TextBox>
-                  <Typography>
+                  <Typography sx={{ p: { sm: "32px", xs: "12px" } }}>
                     Liquidity providers are the most important participants in
                     DAO
                   </Typography>
@@ -188,11 +222,13 @@ export default function Features() {
                 </RecolorfulButtonWrapper1>
               </Card1>
             </Grid>
-            <Grid sm={3}>
+            <Grid sm={3} xs={5.5}>
               <Card1>
                 <MyImage src={img4} />
                 <TextBox>
-                  <Typography>Provide liquidity for any SPL token.</Typography>
+                  <Typography sx={{ p: { sm: "32px", xs: "12px" } }}>
+                    Provide liquidity for any SPL token.
+                  </Typography>
                 </TextBox>
                 <RecolorfulButtonWrapper1>
                   <ButtonReverse
@@ -217,12 +253,18 @@ export default function Features() {
       <TotalCard>
         <Card2>
           <Stack>
-            <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "16px" } }}>
+            <Typography
+              color={"#AFB3C8"}
+              sx={{
+                fontSize: { sm: "16px", xs: "12px" },
+                minHeight: isXs ? "30px" : "unset",
+              }}
+            >
               Total Value Locked
             </Typography>
             <Typography
               color={"#FCFBFF"}
-              sx={{ fontSize: { sm: "36px", mt: "8px" } }}
+              sx={{ fontSize: { sm: "36px", xs: "14px" }, mt: "8px" }}
             >
               $2.29B
             </Typography>
@@ -230,12 +272,18 @@ export default function Features() {
         </Card2>
         <Card2>
           <Stack>
-            <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "16px" } }}>
+            <Typography
+              color={"#AFB3C8"}
+              sx={{
+                fontSize: { sm: "16px", xs: "12px" },
+                minHeight: isXs ? "30px" : "unset",
+              }}
+            >
               Total Trading Volume
             </Typography>
             <Typography
               color={"#FCFBFF"}
-              sx={{ fontSize: { sm: "36px", mt: "8px" } }}
+              sx={{ fontSize: { sm: "36px", xs: "14px" }, mt: "8px" }}
             >
               $218.47M
             </Typography>
@@ -243,12 +291,21 @@ export default function Features() {
         </Card2>
         <Card2>
           <Stack>
-            <Typography color={"#AFB3C8"} sx={{ fontSize: { sm: "16px" } }}>
+            <Typography
+              color={"#AFB3C8"}
+              sx={{
+                fontSize: {
+                  sm: "16px",
+                  xs: "12px",
+                  minHeight: isXs ? "36px" : "unset",
+                },
+              }}
+            >
               Total Users
             </Typography>
             <Typography
               color={"#FCFBFF"}
-              sx={{ fontSize: { sm: "36px", mt: "8px" } }}
+              sx={{ fontSize: { sm: "36px", xs: "14px" }, mt: "8px" }}
             >
               13.72K
             </Typography>

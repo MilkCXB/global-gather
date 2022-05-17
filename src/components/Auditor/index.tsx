@@ -27,14 +27,17 @@ const Wrapper = styled("div")(({ theme }) => ({
   background: "linear-gradient(141deg, #2d385e 0%, #14081e 100%)",
 
   [theme.breakpoints.down("sm")]: {
-    padding: "50px 0 100px 0",
+    padding: "65px 0 78px 0",
   },
 }))
 
 export const MyImage = styled("img")(({ theme }) => ({
-  MaxWidth: "322px",
+  maxWidth: "322px",
 
   margin: "0 auto",
+  [theme.breakpoints.down("sm")]: {
+    maxWidth: "161px",
+  },
 }))
 
 const MiddleImg = styled("img")(({ theme }) => ({
@@ -54,7 +57,7 @@ export default function Auditor() {
     <Wrapper>
       <Stack
         sx={{
-          mb: { sm: "130px", xs: "76px" },
+          mb: { sm: "130px", xs: "60px" },
         }}
       >
         <Title>Auditor</Title>

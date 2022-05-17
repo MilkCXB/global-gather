@@ -7,7 +7,7 @@ import WhyInfMeta from "../src/components/WhyInfMeta"
 import { Box, Container } from "@mui/material"
 import Tokens from "@/src/components/Tokens"
 import bgLarge from "@/public/images/bg-large.png"
-import bgLargeH5 from "@/public/images/bg-large-h5.png"
+import bgLargeH5 from "@/public/images/bg-largeh5.png"
 import RoadMap from "@/src/components/RoadMap"
 import { MutableRefObject, useMemo, useRef } from "react"
 import Footer from "@/src/components/Footer"
@@ -25,11 +25,9 @@ import Auditor from "@/src/components/Auditor"
 const Wrapper = styled("div")(({ theme }) => ({
   background: `url(${bgLarge}) no-repeat;`,
   backgroundSize: "cover",
-  // backgroundPosition: 'center',
-  // padding: '80px 0 0',
-  // backgroundColor: theme.palette.common.black,
+
   [theme.breakpoints.down("sm")]: {
-    background: "#fff",
+    background: `url(${bgLargeH5}) no-repeat;`,
   },
 }))
 
@@ -70,7 +68,12 @@ const Home: NextPage = () => {
         <Box>
           <Features />
         </Box>
-        <Box sx={{ pt: { sm: "124px", xs: "20px" }, pb: { sm: "150px" } }}>
+        <Box
+          sx={{
+            pt: { sm: "124px", xs: "30px" },
+            pb: { sm: "150px", xs: "65px" },
+          }}
+        >
           <Advantages />
         </Box>
         <Box>

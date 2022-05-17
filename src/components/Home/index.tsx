@@ -18,29 +18,33 @@ import {
   ButtonTip,
 } from "../../theme/overrides/Button"
 import bgLarge from "@/public/images/home/bg_home.png"
-import bgLargeH5 from "@/public/images/home/bg_home_h5.png"
+// import bgLargeH5 from "@/public/images/home/bg_home_h5.png"
 import { CustomTheme } from "@/src/theme"
 import { before } from "lodash"
 import title_img from "@/public/images/home/title.png"
 
 const Wrapper = styled("div")(({ theme }) => ({
   // padding: "260px 0 300px 0",
-  height: "100vh",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   position: "relative",
+  [theme.breakpoints.up("sm")]: {
+    height: "100vh",
+  },
   [theme.breakpoints.down("sm")]: {
-    background: `url(${bgLargeH5})`,
+    // background: `url(${bgLargeH5})`,
     fontWeight: "24px",
-    backgroundSize: "cover",
+    // backgroundSize: "cover",
 
-    paddingBottom: "391px",
+    padding: "90px 0",
   },
 }))
 
 const MyStack = styled(Stack)`
-  padding: 0 200px;
+  ${({ theme }) => theme.breakpoints.up("sm")} {
+    padding: 0 200px;
+  }
   align-items: center;
   height: fit-content;
 `
@@ -60,21 +64,23 @@ const Text1 = styled("div")(({ theme }) => ({
 }))
 const TitleImg = styled("img")(({ theme }) => ({
   maxWidth: "387px",
+  [theme.breakpoints.down("sm")]: {
+    maxWidth: "140px",
+  },
 }))
 
 const Text2 = styled("div")(({ theme }) => ({
   fontSize: "20px",
   color: "#AFB3C8",
   maxWidth: "900px",
-  fontWeight: "24px",
   textAlign: "center",
   marginTop: "80px",
 
   [theme.breakpoints.down("sm")]: {
-    fontSize: "12px",
-    fontWeight: "24px",
+    fontSize: "14px",
     padding: "0 15px",
     textAlign: "center",
+    marginTop: "27px",
   },
 }))
 const MyButton = styled(Button)(({ theme }) => ({
@@ -90,7 +96,8 @@ const MyButton = styled(Button)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     fontSize: "12px",
     fontWeight: "24px",
-    padding: "10px 30px",
+    padding: "9px 12px",
+    width: "120px",
   },
 }))
 
@@ -157,7 +164,11 @@ export default function HomePage() {
           low slippage, good depth, and low fees
         </Text2>
 
-        <Stack flexDirection={"row"} gap={"24px"} sx={{ mt: { sm: "70px" } }}>
+        <Stack
+          flexDirection={"row"}
+          gap={"24px"}
+          sx={{ mt: { sm: "70px", xs: "48px" } }}
+        >
           <RecolorfulButtonWrapper
             onMouseEnter={() => {
               setComingSoon1(true)

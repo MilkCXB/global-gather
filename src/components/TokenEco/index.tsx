@@ -38,7 +38,7 @@ const MiddleImg = styled("img")(({ theme }) => ({
   width: "1072px",
   marginTop: "108px",
   [theme.breakpoints.down("sm")]: {
-    marginTop: "45px",
+    marginTop: "60px",
     width: "303px",
   },
 }))
@@ -51,7 +51,7 @@ export default function TokenEco() {
     <Wrapper>
       <Stack
         sx={{
-          mb: { sm: "130px", xs: "76px" },
+          mb: { sm: "130px" },
         }}
       >
         <Title>Token Economics</Title>

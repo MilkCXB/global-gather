@@ -30,6 +30,9 @@ import { Title } from "../Advantages"
 const Wrapper = styled("div")`
   padding-bottom: 200px;
   background: linear-gradient(141deg, #2d385e 0%, #14081e 100%);
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding-bottom: 65px;
+  }
 `
 
 const FlexWrapper = styled("div")`
@@ -43,7 +46,10 @@ const FlexWrapper = styled("div")`
 const IconImg = styled("img")(({ theme }) => ({
   width: "294px",
   [theme.breakpoints.down("sm")]: {
-    width: "112px",
+    width: "134px",
+    "&:nth-child(3)": {
+      marginTop: "50px",
+    },
   },
 }))
 
@@ -92,8 +98,8 @@ export default function MarketMaker() {
           <FlexWrapper>
             <Stack
               sx={{
-                mb: { sm: "130px", xs: "76px" },
-                mt: { xs: "30px", sm: "160px" },
+                mb: { sm: "130px" },
+                mt: { xs: "65px", sm: "160px" },
               }}
             >
               <Title>Market maker</Title>
@@ -107,8 +113,8 @@ export default function MarketMaker() {
           <FlexWrapper>
             <Stack
               sx={{
-                mb: { sm: "130px", xs: "76px" },
-                mt: { xs: "30px", sm: "160px" },
+                mb: { sm: "130px" },
+                mt: { xs: "65px", sm: "160px" },
               }}
             >
               <Title>IEO platform</Title>

@@ -25,7 +25,7 @@ const Wrapper = styled("div")(({ theme }: { theme?: CustomTheme }) => ({
   top: "0",
   left: "0",
   right: "0",
-  zIndex: "1",
+  zIndex: 6,
   // background: '#FBFBFD',
   // backdropFilter: "blur(20px)",
 }))
@@ -40,8 +40,7 @@ const ImgLogo = styled("img")(({ theme }) => ({
   width: "120px",
   // height: '32px',
   [theme.breakpoints.down("sm")]: {
-    width: "86px",
-    height: "32px",
+    width: "96px",
   },
 }))
 
@@ -60,6 +59,9 @@ const MyButton = styled("div")(({ theme }) => ({
       ${lighten(0.05, "#18223c")} 0%,
       ${lighten(0.05, "#1f113b")} 100%
     )`,
+  },
+  [theme.breakpoints.down("sm")]: {
+    padding: "5px 14px",
   },
 
   /* border-image: linear-gradient(90deg, rgba(39, 118, 255, 1), rgba(108, 97, 255, 1)) 1 1; */

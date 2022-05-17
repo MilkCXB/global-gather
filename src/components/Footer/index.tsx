@@ -36,13 +36,16 @@ const NavItem = styled("a")`
   :hover {
     color: #fff !important;
   }
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    margin-top: 7px;
+  }
 `
 
 const ImgLogo = styled("img")(({ theme }) => ({
   width: "100px",
   [theme.breakpoints.down("sm")]: {
-    width: "43px",
-    height: "16px",
+    width: "65px",
+    marginBottom: "15px",
   },
 }))
 
@@ -64,14 +67,14 @@ export default function Footer() {
   return (
     <Wrapper
       sx={{
-        p: { sm: "53px 32px", xs: "20px" },
+        p: { sm: "53px 32px", xs: "20px 0" },
         background: "linear-gradient(141deg, #2D385E 0%, #14081E 100%);",
       }}
     >
       <Container>
         <Box>
           <Stack direction={"column"} spacing={{ sm: "30px", xs: "20px" }}>
-            <Box display={"flex"} alignItems={"center"}>
+            {/* <Box display={"flex"} alignItems={"center"}>
               {isXs ? (
                 <Grid item xs={12} sm={2}>
                   <Stack
@@ -92,20 +95,27 @@ export default function Footer() {
                   </Stack>
                 </Grid>
               ) : null}
-            </Box>
+            </Box> */}
 
             <Box>
               <Grid container>
+                {isXs && (
+                  <ImgLogo src={logoBanner} alt="Logo banner" loading="lazy" />
+                )}
                 <Grid item xs={12} sm={8}>
                   <Stack
                     direction={"row"}
-                    spacing={{ sm: "150px", xs: "13px" }}
+                    spacing={{ sm: "150px", xs: "45px" }}
                     sx={{
                       color: "#fff",
                     }}
                   >
                     <Box>
-                      <Typography sx={{ fontSize: { sm: "16px", xs: "10px" } }}>
+                      <Typography
+                        sx={{
+                          fontSize: { sm: "16px", xs: "12px" },
+                        }}
+                      >
                         PROTOCOL
                       </Typography>
                       <NavItem>Swap</NavItem>
@@ -114,7 +124,11 @@ export default function Footer() {
                       <NavItem>Factory</NavItem>
                     </Box>
                     <Box>
-                      <Typography sx={{ fontSize: { sm: "16px", xs: "10px" } }}>
+                      <Typography
+                        sx={{
+                          fontSize: { sm: "16px", xs: "10px" },
+                        }}
+                      >
                         SUPPORT
                       </Typography>
                       <NavItem
@@ -127,7 +141,11 @@ export default function Footer() {
                       <NavItem>Contracts</NavItem>
                     </Box>
                     <Box>
-                      <Typography sx={{ fontSize: { sm: "16px", xs: "10px" } }}>
+                      <Typography
+                        sx={{
+                          fontSize: { sm: "16px", xs: "10px" },
+                        }}
+                      >
                         COMMUNITY
                       </Typography>
                       <NavItem href={FRIEND_LINK.twitter} target="_blank">
@@ -148,26 +166,33 @@ export default function Footer() {
                     </Box>
                   </Stack>
                 </Grid>
-                {isXs ? null : (
-                  <Grid item xs={12} sm={4}>
+
+                <Grid item xs={12} sm={4} sx={{ mt: isXs ? "12px" : "unset" }}>
+                  {!isXs && (
                     <ImgLogo
                       src={logoBanner}
                       alt="Logo banner"
                       loading="lazy"
                     />
-                    <Box
+                  )}
+
+                  <Box
+                    sx={{
+                      color: "#AFB3C8",
+                      m: { sm: "25px 0 14px 0" },
+                    }}
+                  >
+                    <Typography
                       sx={{
-                        color: "#AFB3C8",
-                        m: { sm: "25px 0 14px 0" },
+                        textAlign: "left",
+                        fontSize: { sm: "14px", xs: "10px" },
                       }}
                     >
-                      <Typography sx={{ textAlign: "left" }}>
-                        The provides a stable,confident and universal digital
-                        currency platform for users to look after their
-                        finances.
-                      </Typography>
-                    </Box>
-                    {/* <Stack direction={"row"} spacing={2} alignItems={"center"}>
+                      The provides a stable,confident and universal digital
+                      currency platform for users to look after their finances.
+                    </Typography>
+                  </Box>
+                  {/* <Stack direction={"row"} spacing={2} alignItems={"center"}>
                       <Outer href={FRIEND_LINK.twitter}>
                         <FriendImg src={icon1} />
                       </Outer>
@@ -178,8 +203,7 @@ export default function Footer() {
                         <FriendImg src={icon3} />
                       </Outer>
                     </Stack> */}
-                  </Grid>
-                )}
+                </Grid>
               </Grid>
             </Box>
           </Stack>
