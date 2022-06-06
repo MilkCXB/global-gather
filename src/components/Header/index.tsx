@@ -1,8 +1,8 @@
-import { Box, Button, Stack, Typography, useTheme } from "@mui/material"
-import styled from "@mui/system/styled"
-import logoBanner from "@/public/images/home/logo.png"
-import { CustomTheme, Hidden } from "@/src/theme"
-import { navs } from "@/src/constants/data"
+import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
+import styled from "@mui/system/styled";
+import logoBanner from "@/public/images/footer/logo.png";
+import { CustomTheme, Hidden } from "@/src/theme";
+import { navs } from "@/src/constants/data";
 import {
   Fragment,
   MutableRefObject,
@@ -10,15 +10,15 @@ import {
   useEffect,
   useMemo,
   useState,
-} from "react"
-import { createGradient } from "@/src/theme/palette"
-import Web3Status from "../Web3Status"
-import { debounce } from "lodash"
+} from "react";
+import { createGradient } from "@/src/theme/palette";
+import Web3Status from "../Web3Status";
+import { debounce } from "lodash";
 import {
   ButtonTip,
   RecolorfulButtonWrapper,
-} from "@/src/theme/overrides/Button"
-import { lighten } from "polished"
+} from "@/src/theme/overrides/Button";
+import { lighten } from "polished";
 
 const Wrapper = styled("div")(({ theme }: { theme?: CustomTheme }) => ({
   position: "fixed",
@@ -28,7 +28,7 @@ const Wrapper = styled("div")(({ theme }: { theme?: CustomTheme }) => ({
   zIndex: 6,
   // background: '#FBFBFD',
   // backdropFilter: "blur(20px)",
-}))
+}));
 
 // const Blur = styled('div')(() => ({
 //   width: '100%',
@@ -37,12 +37,10 @@ const Wrapper = styled("div")(({ theme }: { theme?: CustomTheme }) => ({
 // }))
 
 const ImgLogo = styled("img")(({ theme }) => ({
-  width: "120px",
+  width: "50px",
+  borderRadius: "5px",
   // height: '32px',
-  [theme.breakpoints.down("sm")]: {
-    width: "96px",
-  },
-}))
+}));
 
 const MyButton = styled("div")(({ theme }) => ({
   width: "fit-content",
@@ -66,7 +64,22 @@ const MyButton = styled("div")(({ theme }) => ({
 
   /* border-image: linear-gradient(90deg, rgba(39, 118, 255, 1), rgba(108, 97, 255, 1)) 1 1; */
   /* background-color: rgba(108, 97, 255, 1); */
-}))
+}));
+
+const TopItem = styled("div")<{ isAvtive: boolean }>`
+  position: relative;
+  cursor: pointer;
+
+  ::after {
+    width: ${({ isAvtive }) => (isAvtive ? "100%" : "0%;")};
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    content: "";
+    background: white;
+    height: 3px;
+  }
+`;
 
 export enum Pages {
   HOME = "#home",
@@ -76,101 +89,144 @@ export enum Pages {
 }
 
 export type HeaderRef = {
-  [key in Pages]: MutableRefObject<HTMLDivElement | null>
-}
+  [key in Pages]: MutableRefObject<HTMLDivElement | null>;
+};
 
 export type HeaderProps = {
-  refs?: HeaderRef
-}
+  refs?: HeaderRef;
+};
 
 export default function Header({ refs }: HeaderProps) {
-  const [active, setActive] = useState<Pages>(Pages.HOME)
+  const [active, setActive] = useState<Pages>(Pages.HOME);
 
-  const theme = useTheme()
+  const theme = useTheme();
 
   const handleClickNavItem = (
     ref?: MutableRefObject<HTMLDivElement | null>
   ) => {
-    if (!ref) return
+    if (!ref) return;
 
     // setActive(page)
     if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth", block: "start" })
+      ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }
+  };
   const handleLunch = useCallback(() => {
     // location.href = ''
     // window.open("http://16.162.188.15:7481/")
-  }, [])
+  }, []);
 
   const scrollEventListener = useMemo(() => {
     function fn() {
-      if (!refs) return
+      if (!refs) return;
 
       Object.keys(refs).map((page) => {
-        const _page = page as Pages
-        const el = refs[_page].current
+        const _page = page as Pages;
+        const el = refs[_page].current;
 
-        if (!el) return
+        if (!el) return;
 
-        const { top, height } = el.getBoundingClientRect()
-        const distance1 = top - 84
-        const distance2 = top + height
+        const { top, height } = el.getBoundingClientRect();
+        const distance1 = top - 84;
+        const distance2 = top + height;
 
         if (distance1 <= 0 && distance2 >= 0) {
-          setActive(_page)
+          setActive(_page);
         }
-      })
+      });
     }
 
-    return debounce(fn)
-  }, [refs])
+    return debounce(fn);
+  }, [refs]);
+
+  const [topState, setTopState] = useState(1);
 
   // add listener
   useEffect(() => {
-    document.addEventListener("scroll", scrollEventListener)
+    document.addEventListener("scroll", scrollEventListener);
     return () => {
-      document.removeEventListener("scroll", scrollEventListener)
-    }
-  }, [scrollEventListener])
-  const [comingSoon, setComingSoon] = useState(false)
+      document.removeEventListener("scroll", scrollEventListener);
+    };
+  }, [scrollEventListener]);
+  const [comingSoon, setComingSoon] = useState(false);
 
   return (
     <Wrapper>
       {/* <Blur /> */}
-      <Box sx={{ padding: "20px 32px" }}>
+      <Box bgcolor={"#001220"} sx={{ padding: "10px 332px", opacity: 0.72 }}>
         <Stack
           direction={"row"}
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Box>
-            <ImgLogo src={logoBanner} alt="Logo banner" loading="lazy" />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "ceneter",
+              color: "white",
+            }}
+          >
+            <ImgLogo
+              sx={{ mr: "10px" }}
+              src={logoBanner}
+              alt="Logo banner"
+              loading="lazy"
+            />
+            <Box sx={{ mt: "10px" }}>全球汇</Box>
           </Box>
 
-          <Box>
-            {/* <Button sx={{ backgroundColor: theme.palette.common.black }}>
-              <Typography sx={{ color: theme.palette.primary.contrastText }}>123</Typography>
-            </Button> */}
-            <RecolorfulButtonWrapper>
-              <MyButton
-                onClick={handleLunch}
-                onMouseEnter={() => {
-                  setComingSoon(true)
-                }}
-                onMouseLeave={() => {
-                  setComingSoon(false)
-                }}
-              >
-                {comingSoon ? "coming soon" : "Launch App "}
-              </MyButton>
-              {/* <ButtonTip className="tip" sx={{ top: "40px", fontSize: "20px" }}>
-                coming soon...
-              </ButtonTip> */}
-            </RecolorfulButtonWrapper>
+          <Box
+            sx={{
+              gap: "40px",
+              color: "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "ceneter",
+            }}
+          >
+            <TopItem
+              isAvtive={topState == 1}
+              onClick={() => {
+                setTopState(1);
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              首页
+            </TopItem>
+            <TopItem
+              isAvtive={topState == 2}
+              onClick={() => {
+                setTopState(2);
+                window.scrollTo({
+                  top: 500,
+                  left: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              关于我们
+            </TopItem>
+            <TopItem
+              isAvtive={topState == 3}
+              onClick={() => {
+                setTopState(3);
+                window.scrollTo({
+                  top: 2500,
+                  left: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              下载
+            </TopItem>
           </Box>
         </Stack>
       </Box>
     </Wrapper>
-  )
+  );
 }

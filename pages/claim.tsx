@@ -23,9 +23,6 @@ import { MaxUint256 } from "@ethersproject/constants"
 import { useRouter } from "next/router"
 
 const Wrapper = styled("div")(({ theme }) => ({
-  background: `url(${bgLarge}) no-repeat;`,
-  backgroundSize: "100%",
-  backgroundPosition: "center",
   padding: "84px 32px 0",
   backgroundColor: theme.palette.common.black,
   minHeight: "100vh",
